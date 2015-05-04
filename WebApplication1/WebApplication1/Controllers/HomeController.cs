@@ -10,12 +10,13 @@ namespace WebApplication1.Controllers
     {
         public ActionResult Index()
         {
+            //This is some funky shit!
             return View();
         }
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            
 
             return View();
         }
