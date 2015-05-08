@@ -10,6 +10,7 @@ namespace Gamefacers.Controllers
     {
         public ActionResult Index()
         {
+            //eitthva[ sjit
             return View();
         }
 
