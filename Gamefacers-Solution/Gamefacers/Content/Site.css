@@ -72,8 +72,22 @@ textarea {
     width:800px;
 }
 
-.status-gluggi
+a:link
 {
-   padding 500px;
+    color:blue;
+}
+a:visited
+{
+    color: purple;
+}
+
+a:hover
+{
+    background-image:url("") 
+}
+
+a:active
+{
+    color:red;
 }
 
