@@ -66,13 +66,14 @@ textarea {
     border-style:solid;
     border-color:black;
     position:relative;
-    padding-left:10px;
-    padding-right:10px;
-    width:380px;
+    padding-left:300px;
+    padding-top:20px;
+    padding-right:20px;
+    width:800px;
 }
 
 .status-gluggi
 {
-   
+   padding 500px;
 }
 
