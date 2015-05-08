@@ -22,3 +22,57 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
+.right-column
+{
+    margin-top:20px;
+    border:1px;
+    border-style:solid;
+    border-color:black;
+    font-size:12px;
+  
+    position:relative;
+    background-color:#eeeeee;
+    height:auto;
+    width:150px;
+    float:right;
+    padding:5px;	
+}
+
+.left-column
+{
+    margin-top:20px;
+    border:1px;
+    border-style:solid;
+    border-color:black;
+    position:relative;
+    background-color:#eeeeee;
+    height:auto;
+    width:150px;
+    float:left;
+    padding-top:20px;
+    padding:5px;	      
+}
+
+.main-column
+{
+    margin-top:20px;
+    margin-left:20px;
+    margin-right:20px;
+    float:left;
+    height:500px;
+    border:1px;
+    border-style:solid;
+    border-color:black;
+    position:relative;
+    padding-left:10px;
+    padding-right:10px;
+    width:380px;
+}
+
+.status-gluggi
+{
+   
+}
+
