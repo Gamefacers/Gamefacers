@@ -26,6 +26,7 @@ textarea {
 
 .right-column
 {
+    text-align: center;
     margin-top:20px;
     border:1px;
     border-style:solid;
@@ -42,6 +43,7 @@ textarea {
 
 .left-column
 {
+    text-align: center;
     margin-top:20px;
     border:1px;
     border-style:solid;
@@ -57,6 +59,7 @@ textarea {
 
 .main-column
 {
+    text-align: center;
     margin-top:20px;
     margin-left:20px;
     margin-right:20px;
@@ -66,9 +69,7 @@ textarea {
     border-style:solid;
     border-color:black;
     position:relative;
-    padding-left:300px;
-    padding-top:20px;
-    padding-right:20px;
+    padding:20px;
     width:750px;
 }
 
