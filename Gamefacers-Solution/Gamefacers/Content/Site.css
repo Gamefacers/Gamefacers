@@ -111,5 +111,15 @@ fieldset
     position:absolute;
 	bottom:0;
 	left:200px;
+}
 
+textarea 
+{
+  height:100px;
+  width:800px;
+  resize: none;
+  left: 5px; 
+  top: 5px;
+  right: 5px; 
+  bottom: 5px;
 }
