@@ -9,7 +9,8 @@ namespace Gamefacers.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
+            ContextKey = "Gamefacers.Models.ApplicationDbContext";
         }
 
         protected override void Seed(Gamefacers.Models.ApplicationDbContext context)

@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Gamefacers.Models;
 
 namespace Gamefacers.Models
 {
@@ -22,6 +23,10 @@ namespace Gamefacers.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Status> Statuses { get; set; }
+        public DbSet<StatusComment> StatusComments { get; set; }
+        public DbSet<Friendship> Friendships { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

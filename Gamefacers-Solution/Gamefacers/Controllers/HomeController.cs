@@ -10,8 +10,15 @@ namespace Gamefacers.Controllers
     {
         public ActionResult Index()
         {
-            //eitthva[ sjit
-            return View();
+            if (User.Identity.IsAuthenticated)
+            {
+                return View();
+            }
+            else
+            {
+                return Redirect("/Account/Login");
+            }
+            
         }
 
         public ActionResult MyProfile()
