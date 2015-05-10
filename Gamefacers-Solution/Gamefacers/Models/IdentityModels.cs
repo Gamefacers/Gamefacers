@@ -23,6 +23,8 @@ namespace Gamefacers.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Group> Groups { get; set; }
+        public DbSet<Platform> Platforms { get; set; } 
         public DbSet<Status> Statuses { get; set; }
         public DbSet<StatusComment> StatusComments { get; set; }
         public DbSet<Friendship> Friendships { get; set; }

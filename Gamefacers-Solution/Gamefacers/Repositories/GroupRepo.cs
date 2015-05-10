@@ -2,19 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.DynamicData;
 using Gamefacers.Models;
 
 namespace Gamefacers.Repositories
 {
-    public class StatusRepo : IStatusRepo 
+    public class GroupRepo : IGroupRepo
     {
         ApplicationDbContext db = new ApplicationDbContext();
 
-        public IEnumerable<Status> GetAllStatuses(int GroupId)
+        public IEnumerable<Group> GetYourGroups(int UserId)
         {
-            return (from status in db.Statuses where GroupId == 1 select status).ToList();
-
+            
+            return (from groups in db.Groups where UserId == 1 select groups).ToList();
         }
     }
 }
