@@ -5,11 +5,13 @@ using System.Web;
 
 namespace Gamefacers.Models
 {
-    public class StatusComment
+    public class Group
     {
         public int ID { get; set; }
         public string UserId { get; set; }
-        public DateTime DateCreated { get; set; }
-        public string CommentText { get; set; }  
+        public int StatusId { get; set; }
+        public int PlatformId { get; set; } 
+
+
     }
 }

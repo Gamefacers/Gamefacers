@@ -5,11 +5,10 @@ using System.Web;
 
 namespace Gamefacers.Models
 {
-    public class Status
+    public class Platform
     {
         public int ID { get; set; }
-        public string UserId { get; set; }
-        public DateTime DateCreated { get; set; }
-        public string StatusText { get; set; }  
+        public int GroupId { get; set; }
+
     }
 }

@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Gamefacers.Repositories;
 
 namespace Gamefacers.Controllers
 {
     public class HomeController : Controller
     {
+        IStatusRepo statusRepo = new StatusRepo();
+
         public ActionResult Index()
         {
             if (User.Identity.IsAuthenticated)
