@@ -7,5 +7,6 @@ namespace Gamefacers.Repositories
 {
     public class FriendshipRepo
     {
+
     }
 }

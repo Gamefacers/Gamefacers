@@ -6,7 +6,7 @@ using Gamefacers.Models;
 
 namespace Gamefacers.Repositories
 {
-    public class PlatformRepo
+    public class PlatformRepo : IPlatformRepo
     {
     }
 }
