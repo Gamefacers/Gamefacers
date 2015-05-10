@@ -231,6 +231,10 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_LoginLayout.cshtml" />
+    <Content Include="Views\Home\PlayStation.cshtml" />
+    <Content Include="Views\Home\Xbox.cshtml" />
+    <Content Include="Views\Home\PC.cshtml" />
+    <Content Include="Views\Home\Other.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

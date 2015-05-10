@@ -23,14 +23,42 @@ namespace Gamefacers.Controllers
 
         public ActionResult MyProfile()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Your Profile page.";
 
             return View();
         }
 
         public ActionResult Notification()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Your Notification page.";
+
+            return View();
+        }
+
+        public ActionResult PlayStation()
+        {
+            ViewBag.Message = "Playstation Page";
+
+            return View();
+        }
+
+        public ActionResult Xbox()
+        {
+            ViewBag.Message = "Xbox Page";
+
+            return View();
+        }
+
+        public ActionResult PC()
+        {
+            ViewBag.Message = "PC Page";
+
+            return View();
+        }
+
+        public ActionResult Other()
+        {
+            ViewBag.Message = "Other Page";
 
             return View();
         }
