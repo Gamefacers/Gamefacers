@@ -7,6 +7,10 @@ namespace Gamefacers.Repositories
 {
     public class FriendshipRepo
     {
+     /*   public bool AddFriend(string UserId, int FriendId)
+        {
+           
+        }*/
 
     }
 }
