@@ -174,8 +174,12 @@
     <Compile Include="Models\Status.cs" />
     <Compile Include="Models\StatusComment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\FriendshipRepo.cs" />
     <Compile Include="Repositories\GroupRepo.cs" />
+    <Compile Include="Repositories\IFriendshipRepo.cs" />
     <Compile Include="Repositories\IGroupRepo.cs" />
+    <Compile Include="Repositories\IPlatformRepo.cs" />
+    <Compile Include="Repositories\IStatusCommentRepo.cs" />
     <Compile Include="Repositories\IStatusRepo.cs" />
     <Compile Include="Repositories\PlatformRepo.cs" />
     <Compile Include="Repositories\StatusCommentRepo.cs" />

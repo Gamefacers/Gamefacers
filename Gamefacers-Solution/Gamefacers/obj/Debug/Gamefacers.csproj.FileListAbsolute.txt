@@ -162,3 +162,4 @@ C:\Users\Notandi\Documents\Visual Studio 2013\Projects\WebApplication2\Gamefacer
 C:\Users\Notandi\Documents\Visual Studio 2013\Projects\WebApplication2\Gamefacers\Gamefacers-Solution\Gamefacers\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Notandi\Documents\Visual Studio 2013\Projects\WebApplication2\Gamefacers\Gamefacers-Solution\Gamefacers\obj\Debug\Gamefacers.dll
 C:\Users\Notandi\Documents\Visual Studio 2013\Projects\WebApplication2\Gamefacers\Gamefacers-Solution\Gamefacers\obj\Debug\Gamefacers.pdb
+C:\Users\Notandi\Documents\Visual Studio 2013\Projects\WebApplication2\Gamefacers\Gamefacers-Solution\Gamefacers\obj\Debug\Gamefacers.csprojResolveAssemblyReference.cache

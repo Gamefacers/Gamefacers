@@ -16,5 +16,6 @@ namespace Gamefacers.Repositories
             return (from status in db.Statuses where GroupId == 1 select status).ToList();
 
         }
+
     }
 }
