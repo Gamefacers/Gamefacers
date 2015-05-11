@@ -13,14 +13,15 @@ namespace Gamefacers.Controllers
 
         public ActionResult Index()
         {
-            if (User.Identity.IsAuthenticated)
+            /*if (User.Identity.IsAuthenticated)
             {
                 return View();
             }
             else
             {
                 return Redirect("/Account/Login");
-            }
+            }*/
+            return View();
             
         }
 

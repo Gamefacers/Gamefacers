@@ -34,7 +34,7 @@ textarea {
     font-size:12px;
   
     position:relative;
-    background-color:#eeeeee;
+    background-color:#680000;
     height:auto;
     width:auto;
     float:right;
@@ -47,14 +47,20 @@ textarea {
     margin-top:20px;
     border:1px;
     border-style:solid;
-    border-color:black;
+    border-color:red;
     position:relative;
-    background-color:#eeeeee;
+    background-color:#680000;
     height:auto;
     width:auto;
     float:left;
     padding-top:20px;
     padding:5px;	      
+}
+
+#left-columncolor
+{
+    background-color:#680000;
+
 }
 
 .main-column
