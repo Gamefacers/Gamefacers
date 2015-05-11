@@ -12,6 +12,7 @@ namespace Gamefacers.Models
         public int StatusId { get; set; }
         public int PlatformId { get; set; }
         public string GroupDesc { get; set; }
+        public string GroupName { get; set; }   
 
 
     }

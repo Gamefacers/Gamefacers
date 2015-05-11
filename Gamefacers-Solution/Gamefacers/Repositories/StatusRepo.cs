@@ -13,9 +13,24 @@ namespace Gamefacers.Repositories
 
         public IEnumerable<Status> GetAllStatuses(int GroupId)
         {
-            return (from status in db.Statuses where GroupId == 1 select status).ToList();
+            return (from status in db.Statuses where status.GroupId == GroupId select status).ToList();
 
         }
 
+        public void PostStatus(string UserId, int GroupId, string StatusText)
+        {
+           Status status = new Status();
+            status.UserId = UserId;
+            status.DateCreated = DateTime.Now;
+            status.GroupId = GroupId;
+            status.StatusText = StatusText;
+
+            db.Statuses.Add(status);
+        }
+
+        public string EditStatus(int StatusId)
+        {
+            return null;
+        }
     }
 }

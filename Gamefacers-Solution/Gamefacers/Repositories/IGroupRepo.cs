@@ -9,6 +9,6 @@ namespace Gamefacers.Repositories
 {
     public interface IGroupRepo
     {
-        IEnumerable<Group> GetYourGroups(int UserId);
+        IEnumerable<Group> GetYourGroups(string UserId);
     }
 }
