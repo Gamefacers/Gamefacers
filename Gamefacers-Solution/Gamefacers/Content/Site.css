@@ -59,8 +59,14 @@ textarea {
 
 #left-columncolor
 {
-    color:#680000;
+    background-color:#A00000;
+    color:white;
 
+}
+
+#text-color-black
+{
+    color:black;
 }
 
 .main-column
@@ -81,21 +87,21 @@ textarea {
 
 a:link
 {
-    color:blue;
+    color: black;   
 }
 a:visited
 {
-    color: purple;
+    color: black;
 }
 
 a:hover
 {
-    background-image:url("") 
+     
 }
 
 a:active
 {
-    color:#680000;
+    color: red;
 }
 
 fieldset
@@ -129,4 +135,12 @@ textarea
   top: 5px;
   right: 5px; 
   bottom: 5px;
+}
+
+.text-color-black
+{  
+    font:bold;
+    text-decoration:none;
+    font-weight: bold;
+
 }

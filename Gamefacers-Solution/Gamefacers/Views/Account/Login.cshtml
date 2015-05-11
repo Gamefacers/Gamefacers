@@ -3,12 +3,13 @@
 }
 @using Gamefacers.Models
 @model LoginViewModel
-@{
-    ViewBag.Title = "Log in";
-}
 
-<h2>@ViewBag.Title.</h2>
-<div class="row">
+
+
+<div class="row" id="left-columncolor">
+
+    <h1> Log in: </h1>
+
     <div class="col-md-8">
         <section id="loginForm">
             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
@@ -44,9 +45,9 @@
                         <input type="submit" value="Log in" class="btn btn-default" />
                     </div>
                 </div>
-                <p>
-                    @Html.ActionLink("Register as a new user", "Register")
-                </p>
+    <p class="text-color-black">
+        @Html.ActionLink("Register as a new user", "Register")
+    </p>
                 @* Enable this once you have account confirmation enabled for password reset functionality
                     <p>
                         @Html.ActionLink("Forgot your password?", "ForgotPassword")
@@ -56,8 +57,12 @@
     </div>
     <div class="col-md-4">
         <section id="socialLoginForm">
-            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+            <p> This is a social media site specifically for gamers to share their content, gaming experiance and meet more gamers</p>
+            <p> The site was created for a course in Reykjavík University </p>
+            <p> Created by Stefán Þór, Gunnar Páll, Tryggvi Dalmann and Börkur</p>
+          
         </section>
+        
     </div>
 </div>
 
