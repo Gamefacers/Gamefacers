@@ -14,11 +14,6 @@ namespace Gamefacers.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        // GET: Group/Details/5
-        public ActionResult Details(int id) 
-        {
-            return View();
-        }
 
         // GET: Group/Create
         public ActionResult Create()
