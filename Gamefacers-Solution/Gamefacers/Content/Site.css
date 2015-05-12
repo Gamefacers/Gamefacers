@@ -32,9 +32,8 @@ textarea {
     border-style:solid;
     border-color:black;
     font-size:12px;
-  
+    background-color:#9B342B;
     position:relative;
-    background-color:#A00000;
     height:auto;
     width:auto;
     float:right;
@@ -47,21 +46,20 @@ textarea {
     margin-top:20px;
     border:1px;
     border-style:solid;
-    border-color:red;
+    border-color:black;
     position:relative;
-    background-color:#A00000 ;
     height:auto;
     width:auto;
     float:left;
     padding-top:20px;
-    padding:5px;	      
+    padding:5px;	 
+    background-color:#9B342B;     
 }
 
-#left-columncolor
+#columncolor
 {
-    background-color:#A00000;
+    background-color:#9B342B;
     color:white;
-
 }
 
 #text-color-black
