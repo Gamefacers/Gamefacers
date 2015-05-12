@@ -18,17 +18,26 @@ namespace Gamefacers.Repositories
 
         public IEnumerable<Group> GetAllGroups(int PlatformId)
         {
-            return null;
+            return (from everygroup in db.Groups where everygroup.PlatformId == PlatformId select everygroup).ToList();
+            
         }
 
-        public bool JoinGroup(string UserId, int GroupId)
+        public void JoinGroup(string UserId, int GroupId)
         {
-            return true;
+
         }
 
-        public int CreateGroup()
+        public void CreateGroup(string UserId, int GroupId, int PlatformId, string GroupDesc, string GroupName, int StatusId)
         {
-            return 0;
+            Group NewGroup = new Group();
+            NewGroup.PlatformId = PlatformId;
+            NewGroup.UserId = UserId;
+            NewGroup.GroupName = GroupName;
+            NewGroup.GroupDesc = GroupDesc;
+            NewGroup.StatusId = StatusId;
+
+            db.Groups.Add(NewGroup);
+            db.SaveChanges();
         }
 
         public int LeaveGroup(int GroupId)

@@ -8,19 +8,27 @@ namespace Gamefacers.Repositories
 {
     public class FriendshipRepo
     {
-        public bool AddFriend(string UserId, int FriendId)
+        ApplicationDbContext db = new ApplicationDbContext();
+
+        public void AddFriend(string UserId, string FriendId)
         {
-            return false;
+            Friendship friend = new Friendship();
+            friend.UserId = UserId;
+            friend.FriendId = FriendId;
+
+            db.Friendships.Add(friend);
+            db.SaveChanges();
+
         }
 
         public IEnumerable<Friendship> GetAllFriends(string UserId)
         {
-            return null;
+            return (from friend in db.Friendships where friend.FriendId == UserId select friend).ToList();
         }
 
-        public bool DeleteFriend(string UserId, int FriendId)
+        public void DeleteFriend(string UserId, int FriendId)
         {
-            return true;
+            
         }
 
     }

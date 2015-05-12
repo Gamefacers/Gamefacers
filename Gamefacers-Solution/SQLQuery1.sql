@@ -1,0 +1,1 @@
+﻿insert into Groups (UserId, StatusId, PlatformId, GroupDesc, GroupName) values ('e415a5a6-ec6a-49e1-982f-464a626b3c2e', 0, 0, '', 'Test')

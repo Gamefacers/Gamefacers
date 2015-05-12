@@ -19,13 +19,14 @@ namespace Gamefacers.Repositories
 
         public void PostStatus(string UserId, int GroupId, string StatusText)
         {
-           Status status = new Status();
+            Status status = new Status();
             status.UserId = UserId;
             status.DateCreated = DateTime.Now;
             status.GroupId = GroupId;
             status.StatusText = StatusText;
 
             db.Statuses.Add(status);
+            db.SaveChanges();
         }
 
         public string EditStatus(int StatusId)
