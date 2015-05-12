@@ -67,6 +67,11 @@ textarea {
     color:black;
 }
 
+#text-color-red
+{
+    color: #9B342B;
+}
+
 .main-column
 {
     text-align: center;
