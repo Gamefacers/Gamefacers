@@ -6,7 +6,7 @@ using Gamefacers.Models;
 
 namespace Gamefacers.Repositories
 {
-    public class FriendshipRepo
+    public class FriendshipRepo : IFriendshipRepo
     {
         ApplicationDbContext db = new ApplicationDbContext();
 

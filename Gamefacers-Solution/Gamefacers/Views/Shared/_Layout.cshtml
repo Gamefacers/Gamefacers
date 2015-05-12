@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -9,25 +10,42 @@
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="http://localhost:49325/Home/Index"><img src="http://i.imgur.com/prGTHkA.jpg?3" title="source: imgur.com" /></a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("MyProfile", "MyProfile", "Home")</li>
-                    <li>@Html.ActionLink("Notification", "Notification", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://localhost:49325/Home/Index"><img src="http://i.imgur.com/prGTHkA.jpg?3" title="source: imgur.com"/></a>
         </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>@Html.ActionLink("MyProfile", "MyProfile", "Home")</li>
+                <li>@Html.ActionLink("Notification", "Notification", "Home")</li>
+            </ul>
+            @Html.Partial("_LoginPartial")
+        </div>
+    </div>
+</div>
+    <div class="right-column">
+
+        
+        <form>
+            <fieldset>
+                <legend> My Friends </legend>
+
+                @foreach (var friend in Model)
+                {
+                    <p> <a href=""> @friend.FriendId  </a>
+                    </p>
+                }
+
+                
+            </fieldset>
+        </form>
     </div>
     <div class="container body-content">
         @RenderBody()

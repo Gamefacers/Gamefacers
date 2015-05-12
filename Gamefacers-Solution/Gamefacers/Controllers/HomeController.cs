@@ -13,11 +13,16 @@ namespace Gamefacers.Controllers
     {
         IStatusRepo statusRepo = new StatusRepo();
         IGroupRepo groupRepo = new GroupRepo();
+        IFriendshipRepo friendRepo = new FriendshipRepo();
+
+
+       
 
         public ActionResult Index()
         {
             if (User.Identity.IsAuthenticated)
             {
+                
                 IEnumerable<Group> groups = groupRepo.GetYourGroups(User.Identity.GetUserId());
                 return View(groups);
             }
@@ -31,8 +36,8 @@ namespace Gamefacers.Controllers
 
         public ActionResult MyProfile()
         {
-            ViewBag.Message = "Your Profile page.";
-
+            //IEnumerable<Friendship> friends = friendRepo.GetAllFriends(User.Identity.GetUserId());
+            
             return View();
         }
 
@@ -73,8 +78,6 @@ namespace Gamefacers.Controllers
 
         public ActionResult UsersProfile()
         {
-            ViewBag.Message = "UsersProfile";
-
             return View();
         }
     }
