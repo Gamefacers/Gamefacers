@@ -70,5 +70,12 @@ namespace Gamefacers.Controllers
 
             return View();
         }
+
+        public ActionResult UsersProfile()
+        {
+            ViewBag.Message = "UsersProfile";
+
+            return View();
+        }
     }
 }

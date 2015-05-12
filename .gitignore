@@ -208,3 +208,5 @@ FakesAssemblies/
 Gamefacers-Solution/Gamefacers-Solution.v12.suo
 Gamefacers-Solution/Gamefacers/obj/Debug/Gamefacers.csprojResolveAssemblyReference.cache
 *.suo
+*.suo
+Gamefacers-Solution/Gamefacers/bin/Gamefacers.dll

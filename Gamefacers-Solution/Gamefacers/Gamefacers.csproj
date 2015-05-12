@@ -248,6 +248,7 @@
     <Content Include="Views\Home\Xbox.cshtml" />
     <Content Include="Views\Home\PC.cshtml" />
     <Content Include="Views\Home\Other.cshtml" />
+    <Content Include="Views\Home\UsersProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
