@@ -8,9 +8,18 @@ namespace Gamefacers.Repositories
 {
     public class StatusCommentRepo
     {
-        public string PostCommnet(DateTime DateCreated)
+        ApplicationDbContext db = new ApplicationDbContext();
+
+        public void PostCommnet(string UserId, int StatusId, string CommentText)
         {
-            return null;
+            StatusComment comment = new StatusComment();
+            comment.UserId = UserId;
+            comment.StatusId = StatusId;
+            comment.DateCreated = DateTime.Now;
+            comment.CommentText = CommentText;
+
+            db.StatusComments.Add(comment);
+            db.SaveChanges();
         }
 
         public string EditComment(int StatusCommentId)

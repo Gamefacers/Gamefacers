@@ -1,0 +1,27 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using Gamefacers.Models;
+using Microsoft.AspNet.Identity;
+
+namespace Gamefacers.Repositories
+{
+    public class UserRepo : IUserRepo
+    {
+        ApplicationDbContext db = new ApplicationDbContext();
+
+        public string GetInfo(string UserId)
+        {
+            
+
+
+            return null;
+        }
+        
+            
+            
+        
+    }
+}

@@ -6,11 +6,14 @@ using System.Web.Mvc;
 using Gamefacers.Models;
 using Gamefacers.Repositories;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace Gamefacers.Controllers
 {
     public class HomeController : Controller
-    {
+    {   
+
+        ApplicationUser user = new ApplicationUser();
         IStatusRepo statusRepo = new StatusRepo();
         IGroupRepo groupRepo = new GroupRepo();
         IFriendshipRepo friendRepo = new FriendshipRepo();
@@ -20,25 +23,18 @@ namespace Gamefacers.Controllers
 
         public ActionResult Index()
         {
-            if (User.Identity.IsAuthenticated)
-            {
-                
-                IEnumerable<Group> groups = groupRepo.GetYourGroups(User.Identity.GetUserId());
-                return View(groups);
-            }
-            else
-            {
-                return Redirect("/Account/Login");
-            }
             
-            
+            return View();
         }
 
         public ActionResult MyProfile()
         {
-            //IEnumerable<Friendship> friends = friendRepo.GetAllFriends(User.Identity.GetUserId());
+            var x = User.Identity.GetUserId();
+            //var use = new ApplicationUser{FullName = user.FullName, Email = user.Email};
+            //IEnumerable<ApplicationUser> use = user.GetInfo(User.Identity.GetUserId());
+            return View(x);
+
             
-            return View();
         }
 
         public ActionResult Notification()

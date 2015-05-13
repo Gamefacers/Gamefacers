@@ -1,20 +1,42 @@
-﻿using System;
+﻿using Gamefacers.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Gamefacers.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Gamefacers.Controllers
 {
     public class GroupController : Controller
     {
+        IGroupRepo groupRepo = new GroupRepo();
+
         // GET: Group
-        public ActionResult Index()
+        public ActionResult GroupList()
         {
-            return RedirectToAction("Index", "Home");
+            if (User.Identity.IsAuthenticated)
+            {
+                IEnumerable<Group> groups = groupRepo.GetYourGroups(User.Identity.GetUserId());
+                
+               
+                return View(groups);
+            }
+            else
+            {
+                return Redirect("/Account/Login");
+            }
+            
         }
 
 
+     
+        
+        
+        
+        
+        
         // GET: Group/Create
         public ActionResult Create()
         {
