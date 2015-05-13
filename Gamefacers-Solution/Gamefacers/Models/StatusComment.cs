@@ -9,6 +9,7 @@ namespace Gamefacers.Models
     {
         public int ID { get; set; }
         public string UserId { get; set; }
+        public int StatusId { get; set; }   
         public DateTime DateCreated { get; set; }
         public string CommentText { get; set; }  
     }

@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Gamefacers.Models.Friendship>
+
+@{
+    ViewBag.Title = "GetFriendList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GetFriendList</h2>
+
+<fieldset>
+    <legend> My Friends </legend>
+
+    @foreach (var friend in Model)
+    {
+        <p>
+            <a href=""> @friend.FriendId </a>
+        </p>
+    }
+
+
+</fieldset>

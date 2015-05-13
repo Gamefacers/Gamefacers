@@ -7,9 +7,9 @@ using Gamefacers.Models;
 
 namespace Gamefacers.Repositories
 {
-    interface IFriendshipRepo
+    interface IUserRepo
     {
-        IEnumerable<Friendship> GetAllFriends(string UserId);
-        void AddFriend(string UserId, string FriendId);
+        string GetFullName(string UserId);
+        string GetEmail(string UserId);
     }
 }

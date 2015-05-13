@@ -91,11 +91,13 @@ textarea {
 
 a:link
 {
-    color: black;   
+    color: White;
+    text-underline: single;
 }
 a:visited
 {
-    color: black;
+    color: White;
+    text-underline: single;
 }
 
 a:hover

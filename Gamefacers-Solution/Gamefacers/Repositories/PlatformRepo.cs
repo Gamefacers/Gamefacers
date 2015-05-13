@@ -8,5 +8,6 @@ namespace Gamefacers.Repositories
 {
     public class PlatformRepo : IPlatformRepo
     {
+
     }
 }

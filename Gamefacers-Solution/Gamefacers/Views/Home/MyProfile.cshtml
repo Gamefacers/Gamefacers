@@ -1,6 +1,7 @@
 ﻿
-
-
+@using Gamefacers.Repositories
+@using Microsoft.AspNet.Identity
+@model Gamefacers.Repositories.UserRepo
 
 @{
     ViewBag.Title = "MyProfile";
@@ -20,9 +21,11 @@
         </fieldset>
 
         <fieldset>
-          
-            
 
+            <p>Name: @ViewBag.user </p>
+            <p>Email: @ViewBag.email</p>
+             
+            
             <!--Hér kemur upplýsingar um userinn Name,Email,Birthday og settings-->
             <p>@Html.ActionLink("Settings", "Index", "Manage")</p>
         </fieldset>
@@ -41,13 +44,4 @@
     <!-- Status glugginn og News feedið hér -->
 </div>
 
-<div class="right-column">
 
-    <!-- Friendslist koma hér -->
-    <form>
-        <fieldset>
-            <legend> My group list </legend>
-            <a href=""> Jóhann Guðmundsson</a>
-        </fieldset>
-    </form>
-</div>
