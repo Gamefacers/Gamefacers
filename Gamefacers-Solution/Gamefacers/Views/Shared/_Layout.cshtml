@@ -30,23 +30,8 @@
         </div>
     </div>
 </div>
-    <div class="right-column">
-
-        
-        <form>
-            <fieldset>
-                <legend> My Friends </legend>
-
-                @foreach (var friend in Model)
-                {
-                    <p> <a href=""> @friend.FriendId  </a>
-                    </p>
-                }
-
-                
-            </fieldset>
-        </form>
-    </div>
+    
+    
     <div class="container body-content">
         @RenderBody()
         <hr />

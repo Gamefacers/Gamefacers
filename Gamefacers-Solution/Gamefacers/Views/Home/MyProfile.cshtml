@@ -1,6 +1,6 @@
 ﻿
-
-
+@using Microsoft.AspNet.Identity
+@model Gamefacers.Models.ApplicationUser
 
 @{
     ViewBag.Title = "MyProfile";
@@ -20,9 +20,10 @@
         </fieldset>
 
         <fieldset>
-          
+           
+                  <p>@Html.DisplayFor(modelItem => modelItem.FullName)</p>
+             
             
-
             <!--Hér kemur upplýsingar um userinn Name,Email,Birthday og settings-->
             <p>@Html.ActionLink("Settings", "Index", "Manage")</p>
         </fieldset>
