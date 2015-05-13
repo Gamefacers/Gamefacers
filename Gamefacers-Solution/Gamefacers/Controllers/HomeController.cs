@@ -29,10 +29,10 @@ namespace Gamefacers.Controllers
 
         public ActionResult MyProfile()
         {
-            
-            
-            var use = user.GetFullName(User.Identity.GetUserId());
-            return View(use);
+
+            ViewBag.email = user.GetEmail(User.Identity.GetUserId());
+            ViewBag.user = user.GetFullName(User.Identity.GetUserId());
+            return View();
 
             
         }

@@ -16,6 +16,11 @@ namespace Gamefacers.Repositories
         {
             return (from user in db.Users where user.Id == UserId select user.FullName).Single();
         }
+
+        public string GetEmail(string UserId)
+        {
+            return (from email in db.Users where email.Id == UserId select email.Email).Single();
+        }
         
             
             

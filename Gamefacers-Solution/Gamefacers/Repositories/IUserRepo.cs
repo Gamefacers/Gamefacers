@@ -10,5 +10,6 @@ namespace Gamefacers.Repositories
     interface IUserRepo
     {
         string GetFullName(string UserId);
+        string GetEmail(string UserId);
     }
 }
