@@ -314,7 +314,7 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.428571429;
-  color: #333333;
+  color: #9B342A;
   background-color: #ffffff;
 }
 
@@ -325,6 +325,9 @@ textarea {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
+  color: white;
+  background-color: #9B342A;
+  border-color: white;
 }
 
 button,

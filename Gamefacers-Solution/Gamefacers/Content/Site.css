@@ -139,6 +139,9 @@ textarea
   top: 5px;
   right: 5px; 
   bottom: 5px;
+  background-color: #9B342A;
+  color: white;
+  border-color: white;
 }
 
 .text-color-black
