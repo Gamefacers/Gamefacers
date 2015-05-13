@@ -13,7 +13,7 @@ namespace Gamefacers.Controllers
     public class HomeController : Controller
     {   
 
-        ApplicationUser user = new ApplicationUser();
+        IUserRepo user = new UserRepo();
         IStatusRepo statusRepo = new StatusRepo();
         IGroupRepo groupRepo = new GroupRepo();
         IFriendshipRepo friendRepo = new FriendshipRepo();
@@ -29,10 +29,10 @@ namespace Gamefacers.Controllers
 
         public ActionResult MyProfile()
         {
-            var x = User.Identity.GetUserId();
-            //var use = new ApplicationUser{FullName = user.FullName, Email = user.Email};
-            //IEnumerable<ApplicationUser> use = user.GetInfo(User.Identity.GetUserId());
-            return View(x);
+            
+            
+            var use = user.GetFullName(User.Identity.GetUserId());
+            return View(use);
 
             
         }

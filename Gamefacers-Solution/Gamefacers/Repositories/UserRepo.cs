@@ -12,12 +12,9 @@ namespace Gamefacers.Repositories
     {
         ApplicationDbContext db = new ApplicationDbContext();
 
-        public string GetInfo(string UserId)
+        public string GetFullName(string UserId)
         {
-            
-
-
-            return null;
+            return (from user in db.Users where user.Id == UserId select user.FullName).Single();
         }
         
             
