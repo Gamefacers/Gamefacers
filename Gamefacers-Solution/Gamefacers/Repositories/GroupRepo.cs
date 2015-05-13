@@ -10,10 +10,9 @@ namespace Gamefacers.Repositories
     {
         ApplicationDbContext db = new ApplicationDbContext();
 
-        public IEnumerable<Group> GetYourGroups(string UserId)
+        public IEnumerable<GroupMember> GetYourGroups(string UserId)
         {
-            
-            return (from g in db.Groups where g.UserId == UserId select g).ToList();
+            return (from member in db.GroupMembers where member.UserId == UserId select member).ToList();
         }
 
         public IEnumerable<Group> GetAllGroups(int PlatformId)
@@ -22,19 +21,18 @@ namespace Gamefacers.Repositories
             
         }
 
-        public void JoinGroup(string UserId, int GroupId)
+        public void JoinGroup(GroupMember Member)
         {
-
+            db.GroupMembers.Add(Member);
+            db.SaveChanges();
         }
 
         public void CreateGroup(string UserId, int GroupId, int PlatformId, string GroupDesc, string GroupName, int StatusId)
         {
             Group NewGroup = new Group();
             NewGroup.PlatformId = PlatformId;
-            NewGroup.UserId = UserId;
             NewGroup.GroupName = GroupName;
             NewGroup.GroupDesc = GroupDesc;
-            NewGroup.StatusId = StatusId;
 
             db.Groups.Add(NewGroup);
             db.SaveChanges();

@@ -163,6 +163,7 @@
     <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PlatformController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -170,7 +171,9 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Friendship.cs" />
+    <Compile Include="Models\FrontPageViewModel.cs" />
     <Compile Include="Models\Group.cs" />
+    <Compile Include="Models\GroupMember.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Platform.cs" />
@@ -255,6 +258,9 @@
     <Content Include="Views\Home\UsersProfile.cshtml" />
     <Content Include="Views\Group\GroupList.cshtml" />
     <Content Include="Views\FriendShip\GetFriendList.cshtml" />
+    <Content Include="Views\Group\Create.cshtml" />
+    <Content Include="Views\Platform\Create.cshtml" />
+    <Content Include="Views\Platform\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

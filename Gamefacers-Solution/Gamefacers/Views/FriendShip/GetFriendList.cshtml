@@ -19,3 +19,17 @@
 
 
 </fieldset>
+
+@{
+    ViewBag.Title = "GroupList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<fieldset>
+    <legend> My Group List</legend>
+    @foreach (var group in Model)
+    {
+        <p> <a href=""> @group.GroupName </a> </p>
+    }
+
+</fieldset>

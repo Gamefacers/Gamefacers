@@ -29,6 +29,7 @@ namespace Gamefacers.Models
         public DbSet<Status> Statuses { get; set; }
         public DbSet<StatusComment> StatusComments { get; set; }
         public DbSet<Friendship> Friendships { get; set; }
+        public DbSet<GroupMember> GroupMembers { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

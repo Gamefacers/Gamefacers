@@ -17,14 +17,18 @@ namespace Gamefacers.Controllers
         IStatusRepo statusRepo = new StatusRepo();
         IGroupRepo groupRepo = new GroupRepo();
         IFriendshipRepo friendRepo = new FriendshipRepo();
-
+        IPlatformRepo platformRepo = new PlatformRepo();
 
        
 
         public ActionResult Index()
         {
-            
-            return View();
+            FrontPageViewModel viewModel = new FrontPageViewModel
+            {
+                Groups = null,
+                Platforms = platformRepo.GetAllPlatforms()
+            };
+            return View(viewModel);
         }
 
         public ActionResult MyProfile()

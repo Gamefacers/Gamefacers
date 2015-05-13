@@ -21,15 +21,15 @@ namespace Gamefacers.Controllers
 
         // POST: FriendShip/Create
         [HttpPost]
-        public ActionResult AddFriend(string UserId, string FriendId)
+        public ActionResult AddFriend(string FriendId)
         {
-            
+            var UserId = User.Identity.GetUserId();
             friendsRepo.AddFriend(UserId, FriendId);
 
 
 
 
-            return RedirectToAction("Index", "Home");
+            return View();
            
         }
 

@@ -18,7 +18,7 @@ namespace Gamefacers.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                IEnumerable<Group> groups = groupRepo.GetYourGroups(User.Identity.GetUserId());
+                IEnumerable<GroupMember> groups = groupRepo.GetYourGroups(User.Identity.GetUserId());
                 
                
                 return View(groups);
@@ -47,6 +47,8 @@ namespace Gamefacers.Controllers
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
+            string discription = collection["GroupDesc"];
+
             try
             {
                 // TODO: Add insert logic here
@@ -82,20 +84,26 @@ namespace Gamefacers.Controllers
         }
 
         // GET: Group/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Join(int id)
         {
             return View();
         }
 
         // POST: Group/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Join(int id, FormCollection collection)
         {
             try
             {
-                // TODO: Add delete logic here
+                GroupMember newGroupMember = new GroupMember
+                {
+                    GroupId = id,
+                    UserId = User.Identity.GetUserId()
+                };
+                
+                groupRepo.JoinGroup(newGroupMember);
 
-                return RedirectToAction("Index");
+                return Redirect("/Group/" + id.ToString());
             }
             catch
             {
