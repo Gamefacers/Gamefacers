@@ -35,7 +35,7 @@ textarea {
     background-color:#9B342B;
     position:relative;
     height:auto;
-    width:auto;
+    width:200px;
     float:right;
     padding:5px;	
 }
@@ -49,7 +49,7 @@ textarea {
     border-color:white;
     position:relative;
     height:auto;
-    width:auto;
+    width:200px;
     float:left;
     padding-top:20px;
     padding:5px;	 
@@ -86,7 +86,7 @@ textarea {
     border-color:#9B342B;
     position:relative;
     padding:20px;
-    width:750px;
+    width:700px;
 }
 
 a:link
@@ -176,4 +176,13 @@ textarea
 {
     width: 200px;
     margin:auto;
+}
+
+.banner-pic
+{
+    float:left;
+    height:200px;
+    position:relative;
+    padding:20px;
+    width:700px;
 }

@@ -9,11 +9,11 @@
         <fieldset>
             <fieldset>
                 <legend> My Group List</legend>
-                   @foreach (var group in Model.Groups)
+               <!--   foreach (var group in Model.Groups)
                 {
-                    <p> <a href=""> @group.GroupName </a> </p>
+                    <p> <a href=""> group.GroupName </a> </p>
                 } 
-                  
+                  -->
 
             </fieldset>
 
@@ -59,15 +59,16 @@
         <fieldset>
             <legend> My Friends </legend>
             
-            
-        @foreach (var friend in Model.Friendships)
+        <!--
+        foreach (var friend in )
         {
             <p>
-                <a href="@friend.">
-                    <img src="@friend." height="50" width="150"/>
+                <a href="friend.">
+                    <img src="friend." height="50" width="150"/>
                 </a>
             </p>
         }
+            -->
         </fieldset>
     </form>
 </div>

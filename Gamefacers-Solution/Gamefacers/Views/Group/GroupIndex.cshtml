@@ -1,22 +1,13 @@
 ﻿@model IEnumerable<Gamefacers.Models.GroupMember>
 
-@{
-    ViewBag.Title = "GroupIndex";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-<h2>GroupIndex</h2>
-
-
-
 <div class="right-column">
     <fieldset>
-        <legend> Members In Group</legend>
-        @foreach (var member in Model)
+        <legend> Members</legend>
+        <!--foreach (var member )
         {
-            <p>@member.UserId </p>
+            <p>member.UserId </p>
         }
-        
+       -->
             
         
     </fieldset>
@@ -24,20 +15,20 @@
 
 <div class="left-column">
     <fieldset>
-        <legend> Group description </legend>
+        <legend> Description </legend>
         <p> @ViewBag.desc </p>
+    </fieldset>
+</div>
+
+
+<div>
+    <fieldset>
+        <img src="@ViewBag.photo" class="banner-pic" />
     </fieldset>
 </div>
 
 <div class="main-column">
     <fieldset>
         <p> Statusar og drasl hér </p>
-    </fieldset>
-</div>
-
-<div>
-    <fieldset>
-        <br />
-         <img src="@ViewBag.photo" height="200" width="950" /> 
     </fieldset>
 </div>
