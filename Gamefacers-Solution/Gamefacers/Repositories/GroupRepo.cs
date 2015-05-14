@@ -38,5 +38,10 @@ namespace Gamefacers.Repositories
         {
             return 0;
         }
+
+        public string GetPhotoUrl(int GroupId)
+        {
+            return (from photo in db.Groups where photo.ID == GroupId select photo.PhotoUrl).Single();
+        }
     }
 }

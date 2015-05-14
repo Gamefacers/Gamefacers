@@ -30,6 +30,12 @@ namespace Gamefacers.Controllers
             
         }
 
+        public ActionResult GroupIndex()
+        {   
+
+            return View();
+        }
+
 
      
         
