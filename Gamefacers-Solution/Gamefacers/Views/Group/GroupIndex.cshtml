@@ -5,22 +5,20 @@
         <legend> Members</legend>
         @foreach (var member in Model)
         {
-            <p>member.UserId </p>
+            <p>member.Fullname </p>
         }
-       
-            
-        
     </fieldset>
 </div>
 
 <div class="left-column">
-    <fieldset>
+   <br />
+     <fieldset>
         <legend> Description </legend>
         <p> @ViewBag.desc </p>
     </fieldset>
     <br/>
     
-    @Html.ActionLink()<input type="button" value="Join Group" />
+    <input type="button" value="Join Group" />
 </div>
 
 
