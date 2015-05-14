@@ -12,6 +12,7 @@ namespace Gamefacers.Models
         public string GroupDesc { get; set; }
         public string GroupName { get; set; }
         public string PhotoUrl { get; set; }
+        public string UserId { get; set; }
 
     }
 }

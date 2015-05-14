@@ -25,7 +25,7 @@ namespace Gamefacers.Controllers
         {
             FrontPageViewModel viewModel = new FrontPageViewModel
             {
-                Groups = null,
+                //Groups = groupRepo.GetAllGroups(),
                 Platforms = platformRepo.GetAllPlatforms()
             };
             return View(viewModel);

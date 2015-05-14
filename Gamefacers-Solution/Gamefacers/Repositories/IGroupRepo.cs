@@ -9,10 +9,11 @@ namespace Gamefacers.Repositories
 {
     public interface IGroupRepo
     {
-        IEnumerable<GroupMember> GetYourGroups(string UserId);
+        IEnumerable<GroupMember> GetGroupMembers(string UserId);
         void JoinGroup(GroupMember Member);
         IEnumerable<Group> GetAllGroups(int PlatformId);
         string GetPhotoUrl(int GroupId);
+        string GetGroupDesc(int GroupId);
         
 
 

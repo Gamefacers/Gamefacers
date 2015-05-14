@@ -9,9 +9,9 @@
         <fieldset>
             <fieldset>
                 <legend> My Group List</legend>
-              foreach (var group in Model)
+                   @foreach (var group in Model.Groups)
                 {
-                    <p> <a href=""> //group.GroupName </a> </p>
+                    <p> <a href=""> @group.GroupName </a> </p>
                 } 
                   
 
@@ -44,12 +44,31 @@
 
 <div class="main-column">
     <form>
-            <!--Hér kemur statusinn frá user eða vinum af newsfeed-->
+        <!--Hér kemur statusinn frá user eða vinum af newsfeed-->
         <fieldset>
             <textarea placeholder="What´s on your mind"></textarea>
             <input type="submit"/>
         </fieldset>
     </form>
     <!-- Status glugginn og News feedið hér -->
+</div>
+<div class="right-column">
+
+
+    <form>
+        <fieldset>
+            <legend> My Friends </legend>
+            
+            
+        @foreach (var friend in Model.Friendships)
+        {
+            <p>
+                <a href="@friend.">
+                    <img src="@friend." height="50" width="150"/>
+                </a>
+            </p>
+        }
+        </fieldset>
+    </form>
 </div>
 

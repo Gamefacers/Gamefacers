@@ -10,7 +10,7 @@ namespace Gamefacers.Repositories
     {
         ApplicationDbContext db = new ApplicationDbContext();
 
-        public IEnumerable<GroupMember> GetYourGroups(string UserId)
+        public IEnumerable<GroupMember> GetGroupMembers(string UserId)
         {
             return (from member in db.GroupMembers where member.UserId == UserId select member).ToList();
         }
@@ -42,6 +42,16 @@ namespace Gamefacers.Repositories
         public string GetPhotoUrl(int GroupId)
         {
             return (from photo in db.Groups where photo.ID == GroupId select photo.PhotoUrl).Single();
+        }
+
+        public string GetGroupDesc(int GroupId)
+        {
+            return (from desc in db.Groups where desc.ID == GroupId select desc.GroupDesc).Single();
+        }
+
+        public IEnumerable<Group> GetYorGroups(string UserId)
+        {
+            return (from g in db.Groups where g.UserId == UserId select g ).ToList();
         }
     }
 }

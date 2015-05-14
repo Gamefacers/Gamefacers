@@ -11,14 +11,16 @@ namespace Gamefacers.Controllers
 {
     public class GroupController : Controller
     {
+        IUserRepo user = new UserRepo();
         IGroupRepo groupRepo = new GroupRepo();
+        
 
         // GET: Group
         public ActionResult GroupList()
         {
             if (User.Identity.IsAuthenticated)
             {
-                IEnumerable<GroupMember> groups = groupRepo.GetYourGroups(User.Identity.GetUserId());
+                IEnumerable<GroupMember> groups = groupRepo.GetGroupMembers(User.Identity.GetUserId());
                 
                
                 return View(groups);
@@ -32,7 +34,11 @@ namespace Gamefacers.Controllers
 
         public ActionResult GroupIndex(int id)
         {
+            //IEnumerable<GroupMember> members = groupRepo.GetGroupMembers();
+            
+           // ViewBag.fullName = user.GetFullName()
             ViewBag.photo = groupRepo.GetPhotoUrl(id);
+            ViewBag.desc = groupRepo.GetGroupDesc(id);
 
             return View();
         }
