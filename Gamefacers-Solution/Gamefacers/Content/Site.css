@@ -20,7 +20,7 @@
 input,
 select,
 textarea {
-    max-width: 280px;
+    max-width: 600px;
 }
 
 
@@ -28,9 +28,6 @@ textarea {
 {
     text-align: center;
     margin-top:20px;
-    border:1px;
-    border-style:solid;
-    border-color:white;
     font-size:12px;
     background-color:#9B342B;
     position:relative;
@@ -38,15 +35,13 @@ textarea {
     width:200px;
     float:right;
     padding:5px;	
+    color:white;
 }
 
 .left-column
 {
     text-align: center;
     margin-top:20px;
-    border:1px;
-    border-style:solid;
-    border-color:white;
     position:relative;
     height:750px;
     width:200px;
@@ -74,7 +69,7 @@ textarea {
 
 .main-column
 {
-    text-align: center;
+    text-align: left;
     margin-top:20px;
     margin-left:20px;
     margin-right:20px;
@@ -84,7 +79,7 @@ textarea {
     border-style:solid;
     border-color:#9B342B;
     position:relative;
-    padding:20px;
+    border:5px;
     width:700px;
 }
 
@@ -121,28 +116,28 @@ fieldset
     border:1px;
     border-style:solid;
     border-color:white;
-  
 }
 
 .footer 
 {
+    width:500px;
     position:relative;
 	bottom:0;
 	padding-left:250px;
 }
 
-textarea 
+.status-textarea 
 {
-  height:100px;
-  width:800px;
-  resize: none;
-  left: 5px; 
-  top: 5px;
-  right: 5px; 
-  bottom: 5px;
-  background-color: #9B342A;
-  color: white;
-  border-color: white;
+    height:40px;
+    width:800px;
+    resize: none;
+    left: 5px; 
+    top: 5px;
+    right: 5px; 
+    bottom: 5px;
+    background-color: #9B342A;
+    color: white;
+    border-color: white;
 }
 
 .text-color-black
@@ -150,7 +145,6 @@ textarea
     font:bold;
     text-decoration:none;
     font-weight: bold;
-
 }
 
 .groups
@@ -187,4 +181,56 @@ textarea
     padding-top:15px;
     padding-bottom:5px;
     width:700px;
+}
+
+.text-align-left
+{
+    text-align:left;
+}
+
+.status-button
+{
+    height:41px;
+    width:80px;
+}
+
+.status-gluggi
+{
+    height:200px;
+    width:680px;
+    resize: none;
+    left: 5px; 
+    top: 5px;
+    right: 5px; 
+    bottom: 5px;
+    background-color: #9B342A;
+    color: white;
+    border-width:2px;
+    border-color: black;
+}
+
+.comment
+{
+    
+    height:40px;
+    width:570px;
+    resize: none;
+    background-color: white;
+    color: black;
+    border-color: white;
+}
+
+.status
+{
+    height:auto;
+    width:680px;
+    resize: none;
+    left: 5px; 
+    top: 5px;
+    right: 5px; 
+    bottom: 5px;
+    background-color: #9B342A;
+    color: white;
+    border-width:2px;
+    border-color: black;
 }

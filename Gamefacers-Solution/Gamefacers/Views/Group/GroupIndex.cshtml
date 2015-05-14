@@ -3,10 +3,10 @@
 <div class="right-column">
     <fieldset>
         <legend> Members</legend>
-        @foreach (var member in Model)
+        <!--foreach (var member in Model)
         {
             <p>member.Fullname </p>
-        }
+        }-->
     </fieldset>
 </div>
 
@@ -28,8 +28,17 @@
 </div>
 
 <div class="main-column">
-    <fieldset>
-        <textarea placeholder="What´s on your mind"></textarea>
-        <input type="submit" />
+    <textarea class="status-textarea" placeholder="What´s on your mind"></textarea>
+    <input class="status-button" type="submit" value="Post" />
+
+    <br />
+    <br  />
+    <fieldset class="status">
+        <!-- Hér kemur statusinn-->
+        <p> Test farðu niður</p>
+        <p> Test2 farðu neðar</p>
+        <textarea class="comment" placeholder="comment on status"></textarea>
+        <input class="status-button" type="submit" value="post"  />
+            <!--Hér kemur comment og post-takki-->
     </fieldset>
-</div>
+

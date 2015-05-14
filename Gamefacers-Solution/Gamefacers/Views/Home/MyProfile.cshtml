@@ -3,9 +3,6 @@
 @using Microsoft.AspNet.Identity
 @model Gamefacers.Repositories.UserRepo
 
-@{
-    ViewBag.Title = "MyProfile";
-}
 
 <div class="left-column">
     <form>
@@ -20,7 +17,7 @@
 
         </fieldset>
 
-        <fieldset>
+        <fieldset class="text-align-left">
 
             <p>Name: @ViewBag.user </p>
             <p>Email: @ViewBag.email</p>

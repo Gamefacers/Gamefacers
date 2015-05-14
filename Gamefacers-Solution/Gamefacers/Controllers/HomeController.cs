@@ -41,13 +41,6 @@ namespace Gamefacers.Controllers
             
         }
 
-        public ActionResult Notification()
-        {
-            ViewBag.Message = "Your Notification page.";
-
-            return View();
-        }
-
         public ActionResult PlayStation()
         {
 

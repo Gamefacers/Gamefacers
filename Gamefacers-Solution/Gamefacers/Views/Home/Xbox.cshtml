@@ -1,21 +1,20 @@
 ﻿@model IEnumerable<Gamefacers.Models.Group>
 
-@{
-    ViewBag.Title = "Xbox";
-}
+<div>
+    <form class="groups">
 
-<h2>Xbox</h2>
-<form>
-    <fieldset>
-        <legend>Xbox One</legend>
-        @foreach (var item in Model)
-        {
-            <p>
-                @item.GroupName
-            </p>
-            <p>
-                @item.PhotoUrl
-            </p>
-        }
-    </fieldset>
-</form>
+        <fieldset class="groups-fieldset">
+            <legend>XBox One</legend>
+            @foreach (var item in Model)
+            {
+                <fieldset>
+                    @Html.ActionLink(@item.GroupName, "GroupIndex", "Group", new { id = item.ID }, null)
+                </fieldset>
+                <br />
+            }
+        </fieldset>
+
+        <br />
+        <a href="/group/create" value=""> Create Group hér </a>
+    </form>
+</div>
