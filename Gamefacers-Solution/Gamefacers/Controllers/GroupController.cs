@@ -40,6 +40,7 @@ namespace Gamefacers.Controllers
             
             ViewBag.photo = groupRepo.GetPhotoUrl(id);
             ViewBag.desc = groupRepo.GetGroupDesc(id);
+            ViewBag.Id = id;
 
             return View(members);
         }
@@ -118,7 +119,7 @@ namespace Gamefacers.Controllers
 
             groupRepo.JoinGroup(newGroupMember);
 
-            return Redirect("/Group/" + id.ToString());
+            return Redirect("/Group/GroupIndex/" + id.ToString());
         }
 
        
