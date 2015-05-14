@@ -48,11 +48,11 @@ namespace Gamefacers.Controllers
             return View();
         }
 
-        public ActionResult PlayStation()
+        public ActionResult PlayStation(int PlatformId)
         {
-            ViewBag.Message = "Playstation Page";
+            IEnumerable<Group> groups = groupRepo.GetAllGroups(PlatformId);
 
-            return View();
+            return View(groups);
         }
 
         public ActionResult Xbox()

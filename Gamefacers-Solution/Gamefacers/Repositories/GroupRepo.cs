@@ -27,14 +27,10 @@ namespace Gamefacers.Repositories
             db.SaveChanges();
         }
 
-        public void CreateGroup(string UserId, int GroupId, int PlatformId, string GroupDesc, string GroupName, int StatusId)
+        public void CreateGroup(Group group)
         {
-            Group NewGroup = new Group();
-            NewGroup.PlatformId = PlatformId;
-            NewGroup.GroupName = GroupName;
-            NewGroup.GroupDesc = GroupDesc;
-
-            db.Groups.Add(NewGroup);
+          
+            db.Groups.Add(group);
             db.SaveChanges();
         }
 

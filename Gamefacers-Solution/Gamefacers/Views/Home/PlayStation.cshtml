@@ -1,7 +1,13 @@
-﻿
+﻿@model IEnumerable<Gamefacers.Models.Group>
 @{
     ViewBag.Title = "PlayStation";
 }
 
 <h2>PlayStation</h2>
 
+@foreach (var item in Model)
+{
+    <p>@item.PhotoUrl;</p>
+    <p>@item.GroupName;</p>
+
+}

@@ -47,18 +47,23 @@ namespace Gamefacers.Controllers
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
-            string discription = collection["GroupDesc"];
+            var newGroupName = collection["GroupName"];
+            var newGroupPhotoUrl = collection["PhotoUrl"];
+            var nPLatformId = collection["PlatformId"];
+           
+            var newGroupDesc = collection["GroupDesc"];
+            Group newGroup = new Group 
+            { GroupName = newGroupName, 
+                PhotoUrl = newGroupPhotoUrl, 
+                PlatformId = Convert.ToInt32(nPLatformId), 
+                GroupDesc = newGroupDesc};
 
-            try
-            {
-                // TODO: Add insert logic here
+            groupRepo.CreateGroup(newGroup);
+            
+                
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+                return RedirectToAction("Index", "Home");
+           
         }
 
         // GET: Group/Edit/5
