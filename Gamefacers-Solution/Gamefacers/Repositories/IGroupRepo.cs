@@ -12,6 +12,7 @@ namespace Gamefacers.Repositories
         IEnumerable<GroupMember> GetYourGroups(string UserId);
         void JoinGroup(GroupMember Member);
         IEnumerable<Group> GetAllGroups(int PlatformId);
+        string GetPhotoUrl(int GroupId);
         
 
 

@@ -30,8 +30,9 @@ namespace Gamefacers.Controllers
             
         }
 
-        public ActionResult GroupIndex()
-        {   
+        public ActionResult GroupIndex(int id)
+        {
+            ViewBag.photo = groupRepo.GetPhotoUrl(id);
 
             return View();
         }

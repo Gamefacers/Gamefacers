@@ -9,15 +9,15 @@
         <fieldset class="groups-fieldset">
             <legend>Playstation</legend>
             @foreach (var item in Model)
-            {
+            { 
                 <fieldset>
-                    <a href="/"> @item.GroupName </a>
+                 @Html.ActionLink(@item.GroupName, "GroupIndex", "Group", new {id = item.ID}, null)  
                 </fieldset>
             <br />
             }
         </fieldset>
         
         <br />
-        <a href="/group/create"> Create Group hér </a>
+        <a href="/group/create" value=""> Create Group hér </a>
     </form>
 </div>
