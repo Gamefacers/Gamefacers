@@ -10,13 +10,10 @@ namespace Gamefacers.Repositories
     {
         ApplicationDbContext db = new ApplicationDbContext();
 
-        public void AddFriend(string UserId, string FriendId)
+        public void AddFriend(Friendship newFriend)
         {
-            Friendship friend = new Friendship();
-            friend.UserId = UserId;
-            friend.FriendId = FriendId;
 
-            db.Friendships.Add(friend);
+            db.Friendships.Add(newFriend);
             db.SaveChanges();
 
         }

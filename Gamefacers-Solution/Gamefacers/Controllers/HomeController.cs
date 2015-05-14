@@ -77,8 +77,9 @@ namespace Gamefacers.Controllers
             return View(ogroups);
         }
 
-        public ActionResult UsersProfile()
+        public ActionResult UsersProfile(string FriendId)
         {
+
             return View();
         }
     }

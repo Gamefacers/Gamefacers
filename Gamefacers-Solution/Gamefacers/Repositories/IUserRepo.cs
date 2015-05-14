@@ -11,5 +11,6 @@ namespace Gamefacers.Repositories
     {
         string GetFullName(string UserId);
         string GetEmail(string UserId);
+        IEnumerable<ApplicationUser> GetUsersFromIds(IEnumerable<string> ids);
     }
 }

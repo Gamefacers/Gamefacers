@@ -10,9 +10,9 @@ namespace Gamefacers.Repositories
     {
         ApplicationDbContext db = new ApplicationDbContext();
 
-        public IEnumerable<GroupMember> GetGroupMembers(string UserId)
+        public IEnumerable<string> GetGroupMembersIds(int GroupId)
         {
-            return (from member in db.GroupMembers where member.UserId == UserId select member).ToList();
+            return (from member in db.GroupMembers where member.GroupId == GroupId select member.UserId).ToList();
         }
 
         public IEnumerable<Group> GetAllGroups(int PlatformId)

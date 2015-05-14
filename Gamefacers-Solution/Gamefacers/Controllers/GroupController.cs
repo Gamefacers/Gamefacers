@@ -21,10 +21,10 @@ namespace Gamefacers.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                IEnumerable<GroupMember> groups = groupRepo.GetGroupMembers(User.Identity.GetUserId());
+              
                 
                
-                return View(groups);
+                return View();
             }
             else
             {
@@ -35,13 +35,13 @@ namespace Gamefacers.Controllers
 
         public ActionResult GroupIndex(int id)
         {
-            //IEnumerable<GroupMember> members = groupRepo.GetGroupMembers();
+            IEnumerable<string> membersUserIds = groupRepo.GetGroupMembersIds(id);
+            IEnumerable<ApplicationUser> members = user.GetUsersFromIds(membersUserIds);
             
-           // ViewBag.fullName = user.GetFullName()
             ViewBag.photo = groupRepo.GetPhotoUrl(id);
             ViewBag.desc = groupRepo.GetGroupDesc(id);
 
-            return View();
+            return View(members);
         }
 
 
@@ -107,32 +107,21 @@ namespace Gamefacers.Controllers
           
         }
 
-        // GET: Group/Delete/5
+        // GET: Group/Join/GroupId
         public ActionResult Join(int id)
         {
-            return View();
+            GroupMember newGroupMember = new GroupMember
+            {
+                GroupId = id,
+                UserId = User.Identity.GetUserId()
+            };
+
+            groupRepo.JoinGroup(newGroupMember);
+
+            return Redirect("/Group/" + id.ToString());
         }
 
-        // POST: Group/Delete/5
-        [HttpPost]
-        public ActionResult Join(int id, FormCollection collection)
-        {
-            try
-            {
-                GroupMember newGroupMember = new GroupMember
-                {
-                    GroupId = id,
-                    UserId = User.Identity.GetUserId()
-                };
-                
-                groupRepo.JoinGroup(newGroupMember);
-
-                return Redirect("/Group/" + id.ToString());
-            }
-            catch
-            {
-                return View();
-            }
-        }
+       
+        
     }
 }

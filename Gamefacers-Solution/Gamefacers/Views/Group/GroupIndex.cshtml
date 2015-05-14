@@ -1,13 +1,13 @@
-﻿@model IEnumerable<Gamefacers.Models.GroupMember>
+﻿@model IEnumerable<Gamefacers.Models.ApplicationUser>
 
 <div class="right-column">
     <fieldset>
         <legend> Members</legend>
-        <!--foreach (var member )
+        @foreach (var member in Model)
         {
             <p>member.UserId </p>
         }
-       -->
+       
             
         
     </fieldset>
@@ -18,8 +18,9 @@
         <legend> Description </legend>
         <p> @ViewBag.desc </p>
     </fieldset>
-    <br />
-    <input type="button" value="Join Group" />
+    <br/>
+    
+    @Html.ActionLink()<input type="button" value="Join Group" />
 </div>
 
 

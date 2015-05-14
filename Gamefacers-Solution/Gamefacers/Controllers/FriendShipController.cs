@@ -13,23 +13,19 @@ namespace Gamefacers.Controllers
     {
         IFriendshipRepo friendsRepo = new FriendshipRepo();
 
-        // GET: FriendShip/Create
-        public ActionResult AddFriend()
-        {
-            return View();
-        }
-
-        // POST: FriendShip/Create
-        [HttpPost]
+       
         public ActionResult AddFriend(string FriendId)
         {
-            var UserId = User.Identity.GetUserId();
-            friendsRepo.AddFriend(UserId, FriendId);
+            Friendship newFriendship = new Friendship
+            {
+                UserId = User.Identity.GetUserId(),
+                FriendId = FriendId,
+            };
+                
+                friendsRepo.AddFriend(newFriendship);
 
 
-
-
-            return View();
+            return Redirect("/Home/UsersProfile?FriendId=" + FriendId  );
            
         }
 

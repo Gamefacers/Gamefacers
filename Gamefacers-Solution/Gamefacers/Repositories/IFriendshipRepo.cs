@@ -10,6 +10,6 @@ namespace Gamefacers.Repositories
     interface IFriendshipRepo
     {
         IEnumerable<Friendship> GetAllFriends(string UserId);
-        void AddFriend(string UserId, string FriendId);
+        void AddFriend(Friendship newFriend);
     }
 }

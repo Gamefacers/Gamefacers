@@ -21,7 +21,11 @@ namespace Gamefacers.Repositories
         {
             return (from email in db.Users where email.Id == UserId select email.Email).Single();
         }
-        
+
+        public IEnumerable<ApplicationUser> GetUsersFromIds(IEnumerable<string> ids)
+        {
+            return (from user in db.Users where ids.Contains(user.Id) select user).ToList();
+        } 
             
             
         

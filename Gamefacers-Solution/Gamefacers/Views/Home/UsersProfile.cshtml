@@ -1,4 +1,7 @@
-﻿<div class="left-column">
+﻿@model Gamefacers.Models.ApplicationUser
+
+
+<div class="left-column">
     <form>
         <fieldset>
             <!--Hér kemur profile pic sem user hefur upploadað-->
@@ -11,7 +14,7 @@
 
         <fieldset>
            <!--(Html.BeginForm("AddFriend", "FriendShip", FormMethod.Post, new { }));-->
-            <input type="submit" value="Add Friend"/>
+            <a href="/Friendship/AddFriend?FriendId=@Model.Id">Add Friend</a>
         </fieldset>
     </form>
 
