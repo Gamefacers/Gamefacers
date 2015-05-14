@@ -9,6 +9,6 @@ namespace Gamefacers.Models
     {
         public IEnumerable<Group> Groups { get; set; }
         public IEnumerable<Platform> Platforms { get; set; }
-
+        public IEnumerable<Friendship> Friendships { get; set; } 
     }
 }

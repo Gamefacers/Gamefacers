@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<Gamefacers.Models.Group>
+
 @{
     ViewBag.Title = "PC";
 }
@@ -8,6 +9,14 @@
 <form>
     <fieldset>
         <legend>PC games</legend>
-       
+       @foreach (var item in Model)
+       {
+           <p>
+               @item.GroupName
+           </p>
+           <p>
+               @item.PhotoUrl
+           </p>
+       }
     </fieldset>
 </form>

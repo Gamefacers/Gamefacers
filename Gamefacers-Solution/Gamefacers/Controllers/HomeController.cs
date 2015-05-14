@@ -48,32 +48,33 @@ namespace Gamefacers.Controllers
             return View();
         }
 
-        public ActionResult PlayStation(int PlatformId)
+        public ActionResult PlayStation()
         {
-            IEnumerable<Group> groups = groupRepo.GetAllGroups(PlatformId);
 
-            return View(groups);
+           IEnumerable<Group> pgroups = groupRepo.GetAllGroups(1);
+
+           return View(pgroups);
         }
 
         public ActionResult Xbox()
         {
-            ViewBag.Message = "Xbox Page";
+            IEnumerable<Group> xgroups = groupRepo.GetAllGroups(2);
 
-            return View();
+            return View(xgroups);
         }
 
         public ActionResult PC()
         {
-            ViewBag.Message = "PC Page";
+            IEnumerable<Group> pcgroups = groupRepo.GetAllGroups(3);
 
-            return View();
+            return View(pcgroups);
         }
 
         public ActionResult Other()
         {
-            ViewBag.Message = "Other Page";
+            IEnumerable<Group> ogroups = groupRepo.GetAllGroups(4);
 
-            return View();
+            return View(ogroups);
         }
 
         public ActionResult UsersProfile()

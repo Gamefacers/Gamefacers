@@ -4,10 +4,17 @@
 }
 
 <h2>PlayStation</h2>
-
-@foreach (var item in Model)
-{
-    <p>@item.PhotoUrl;</p>
-    <p>@item.GroupName;</p>
-
-}
+<form>
+    <fieldset>
+        <legend>Playstation</legend>
+        @foreach (var item in Model)
+        {
+            <p>
+                @item.GroupName
+            </p>
+            <p>
+                <img src="@item.PhotoUrl" height="50" width="150" />
+            </p>
+        }
+    </fieldset>
+</form>

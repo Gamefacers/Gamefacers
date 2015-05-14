@@ -1,7 +1,21 @@
-﻿
+﻿@model IEnumerable<Gamefacers.Models.Group>
+
 @{
     ViewBag.Title = "Xbox";
 }
 
 <h2>Xbox</h2>
-
+<form>
+    <fieldset>
+        <legend>Xbox</legend>
+        @foreach (var item in Model)
+        {
+            <p>
+                @item.GroupName
+            </p>
+            <p>
+                @item.PhotoUrl
+            </p>
+        }
+    </fieldset>
+</form>
