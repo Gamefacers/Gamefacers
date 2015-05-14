@@ -3,18 +3,21 @@
     ViewBag.Title = "PlayStation";
 }
 
-<h2>PlayStation</h2>
-<form>
-    <fieldset>
-        <legend>Playstation</legend>
-        @foreach (var item in Model)
-        {
-            <p>
-                @item.GroupName
-            </p>
-            <p>
-                <img src="@item.PhotoUrl" height="50" width="150" />
-            </p>
-        }
-    </fieldset>
-</form>
+<div>
+    <form class="groups">
+        
+        <fieldset class="groups-fieldset">
+            <legend>Playstation</legend>
+            @foreach (var item in Model)
+            {
+                <fieldset>
+                    <a href="/"> @item.GroupName </a>
+                </fieldset>
+            <br />
+            }
+        </fieldset>
+        
+        <br />
+        <a href="/group/create"> Create Group hér </a>
+    </form>
+</div>

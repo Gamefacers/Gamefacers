@@ -153,3 +153,27 @@ textarea
     font-weight: bold;
 
 }
+
+.groups
+{
+    text-align: center;
+    margin-top:20px;
+    margin-left:250px;
+    margin-right:20px;
+    float:left;
+    height:auto;
+    border:1px;
+    border-style:solid;
+    border-color:#9B342B;
+    position:relative;
+    padding:20px;
+    width:500px;
+    background-color:#9B342B;
+    color:white;
+}
+
+.groups-fieldset
+{
+    width: 200px;
+    margin:auto;
+}

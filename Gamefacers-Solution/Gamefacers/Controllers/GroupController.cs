@@ -27,9 +27,14 @@ namespace Gamefacers.Controllers
             {
                 return Redirect("/Account/Login");
             }
-            
         }
 
+        public ActionResult GroupIndex()
+        {
+          //  ViewBag.photo = groupRepo.
+
+            return View();
+        }
 
      
         
