@@ -1,23 +1,27 @@
 ﻿@model IEnumerable<Gamefacers.Models.ApplicationUser>
 
+
 <div class="right-column">
     <fieldset>
         <legend> Members</legend>
         @foreach (var member in Model)
         {
-            <p>member.Fullname </p>
+            <p> @member.FullName </p>
         }
+       
+            
+        
     </fieldset>
 </div>
 
 <div class="left-column">
-     <fieldset>
+    <fieldset>
         <legend> Description </legend>
         <p> @ViewBag.desc </p>
     </fieldset>
     <br/>
-    
-    <input type="button" value="Join Group" />
+        
+        @Html.ActionLink("Join", "Join","Group", new { id = ViewBag.Id  }, null)
 </div>
 
 
