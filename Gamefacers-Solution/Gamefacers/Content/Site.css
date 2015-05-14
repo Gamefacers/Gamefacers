@@ -30,11 +30,11 @@ textarea {
     margin-top:20px;
     border:1px;
     border-style:solid;
-    border-color:black;
+    border-color:white;
     font-size:12px;
     background-color:#9B342B;
     position:relative;
-    height:auto;
+    height:750px;
     width:200px;
     float:right;
     padding:5px;	
@@ -48,10 +48,9 @@ textarea {
     border-style:solid;
     border-color:white;
     position:relative;
-    height:auto;
+    height:750px;
     width:200px;
     float:left;
-    padding-top:20px;
     padding:5px;	 
     background-color:#9B342B;
     color:white;     
@@ -80,7 +79,7 @@ textarea {
     margin-left:20px;
     margin-right:20px;
     float:left;
-    height:500px;
+    height:auto;
     border:1px;
     border-style:solid;
     border-color:#9B342B;
@@ -127,9 +126,9 @@ fieldset
 
 .footer 
 {
-    position:absolute;
+    position:relative;
 	bottom:0;
-	left:200px;
+	padding-left:250px;
 }
 
 textarea 
@@ -183,6 +182,9 @@ textarea
     float:left;
     height:200px;
     position:relative;
-    padding:20px;
+    padding-left:15px;
+    padding-right:15px;
+    padding-top:15px;
+    padding-bottom:5px;
     width:700px;
 }
