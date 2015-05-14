@@ -10,6 +10,7 @@ namespace Gamefacers.Repositories
 {
     public interface IStatusRepo
     {
+        void PostStatus(Status status);
         IEnumerable<Status> GetAllStatuses(int GroupId);
     }
 }

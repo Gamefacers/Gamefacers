@@ -17,14 +17,10 @@ namespace Gamefacers.Repositories
 
         }
 
-        public void PostStatus(string UserId, int GroupId, string StatusText)
+        public void PostStatus(Status status)
         {
-            Status status = new Status();
-            status.UserId = UserId;
-            status.DateCreated = DateTime.Now;
-            status.GroupId = GroupId;
-            status.StatusText = StatusText;
-
+           
+            
             db.Statuses.Add(status);
             db.SaveChanges();
         }

@@ -13,6 +13,7 @@ namespace Gamefacers.Controllers
     {
         IUserRepo user = new UserRepo();
         IGroupRepo groupRepo = new GroupRepo();
+        IStatusRepo statusRepo = new StatusRepo();
         
 
         // GET: Group
@@ -87,18 +88,23 @@ namespace Gamefacers.Controllers
 
         // POST: Group/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult PostStatus(int id, FormCollection collection)
         {
-            try
+            var newStatusText = collection["StatusText"];
+            
+            Status newStatus = new Status
             {
-                // TODO: Add update logic here
+                StatusText = newStatusText,
+                DateCreated = DateTime.Now,
+                UserId = User.Identity.GetUserId(),
+                GroupId = id,
+                };
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            statusRepo.PostStatus(newStatus);
+
+
+             return RedirectToAction("GroupIndex","Group");
+          
         }
 
         // GET: Group/Delete/5
