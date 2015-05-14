@@ -1,18 +1,29 @@
-﻿@model IEnumerable<Gamefacers.Models.Group>
+﻿
+<div class="right-column">
+    <fieldset>
+        <legend> Members In Group</legend>
+        @foreach (var group in Model)
+        {
+            <p> <a href=""> <img src="@group.PhotoUrl" /> @group.GroupName></a> </p>
+        }
+    </fieldset>
+</div>
 
-@{
-    ViewBag.Title = "GroupList";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+<div class="left-column">
+    <fieldset>
+        <legend> Description hér </legend>
+    </fieldset>
+</div>
 
-<fieldset>
-    <legend> My Group List</legend>
-    @foreach (var group in Model)
-    {
-        <p> <a href=""> @group.GroupName </a> </p>
-    }
+<div class="main-column">
+    <fieldset>
+        <p> Statusar og drasl hér </p>
+    </fieldset>
+</div>
 
-</fieldset>
-
-
-
+<div>
+    <fieldset>
+        <br />
+        <p> Mynd hér og henda efst</p>
+    </fieldset>
+</div>
