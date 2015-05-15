@@ -10,5 +10,6 @@ namespace Gamefacers.Repositories
     interface IStatusCommentRepo
     {
         void PostComment(StatusComment newComment);
+        IEnumerable<StatusComment> GetStatusComments(IEnumerable<int> StatusId);
     }
 }

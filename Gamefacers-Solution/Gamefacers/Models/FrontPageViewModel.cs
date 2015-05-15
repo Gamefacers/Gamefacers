@@ -11,6 +11,8 @@ namespace Gamefacers.Models
         public IEnumerable<Platform> Platforms { get; set; }
         public IEnumerable<Friendship> Friendships { get; set; }
         public IEnumerable<Status> Statuses { get; set; }
-        public IEnumerable<GroupMember> GroupMembers { get; set; } 
+        public IEnumerable<GroupMember> GroupMembers { get; set; }
+        public IEnumerable<StatusComment> StatusComments { get; set; }
+        public StatusComment StatusComment { get; set; }
     }
 }

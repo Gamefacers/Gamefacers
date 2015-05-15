@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Gamefacers.Models.Status>
+﻿@model Gamefacers.Models.FrontPageViewModel
 
 
 <div class="left-column">
@@ -29,15 +29,33 @@
 </div>
 
 <div class="main-column">
-    @foreach (var mystatus in Model)
+    @foreach (var mystatus in Model.Statuses)
     {
         <p> Jonsson , @mystatus.DateCreated </p>
         <fieldset class="status">
             <!-- Hér kemur statusinn-->
             <p> @mystatus.StatusText </p>
+            @using (Html.BeginForm("PostProfileComment", "Home", new { StatusId = mystatus.ID, GroupId = mystatus.GroupId }, FormMethod.Post, null))
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.StatusComment.CommentText, new { htmlAttributes = new { @class = "status-textarea" } })
+                        @Html.ValidationMessageFor(model => model.StatusComment.CommentText, "", new { @class = "status-textarea" })
+                        <input class="status-button" name="Post" type="submit" value="Post" />
+                    </div>
+                </div>
+            }
 
-            <textarea class="comment" placeholder="comment on status"></textarea>
-            <input class="status-button" type="submit" value="Post"/>
+            @foreach (var comment in Model.StatusComments)
+            {
+                if (mystatus.ID == comment.StatusId)
+                {
+                    <br />
+                    <p class="comment">@comment.CommentText</p>
+
+                }
+            }
         </fieldset>
     }
     <br />

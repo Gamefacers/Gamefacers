@@ -37,13 +37,14 @@ namespace Gamefacers.Controllers
         public ActionResult GroupIndex(int id)
         {
 
-            
+            IEnumerable<int> statusId = statusRepo.GetAllStatusesIds(id);
             IEnumerable<string> membersUserIds = groupRepo.GetGroupMembersIds(id);
-            GroupIndexViewModels viewModel = new GroupIndexViewModels()
+            GroupIndexViewModels viewModel = new GroupIndexViewModels
             {
                 Members = user.GetUsersFromIds(membersUserIds),
                 Statuses = statusRepo.GetAllStatuses(id),
-
+                StatusComments = statusCommentRepo.GetStatusComments(statusId)
+                
 
                 
             };
@@ -155,6 +156,8 @@ namespace Gamefacers.Controllers
                 return Redirect("/Group/GroupIndex/" + GroupId.ToString());
             }
         }
+
+    
 
        
         

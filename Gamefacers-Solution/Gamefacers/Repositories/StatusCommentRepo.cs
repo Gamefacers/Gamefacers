@@ -21,5 +21,10 @@ namespace Gamefacers.Repositories
         {
             return null;
         }
+
+        public IEnumerable<StatusComment> GetStatusComments(IEnumerable<int> StatusId)
+        {
+            return (from statusComments in db.StatusComments where StatusId.Contains(statusComments.StatusId) select statusComments).ToList();
+        }
     }
 }

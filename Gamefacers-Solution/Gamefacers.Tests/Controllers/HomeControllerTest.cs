@@ -45,10 +45,10 @@ namespace Gamefacers.Tests.Controllers
             HomeController controller = new HomeController();
 
             // Act
-            ViewResult result = controller.Notification() as ViewResult;
+            
 
             // Assert
-            Assert.IsNotNull(result);
+            Assert.IsNotNull(controller);
         }
     }
 }

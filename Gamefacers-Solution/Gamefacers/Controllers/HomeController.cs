@@ -12,47 +12,60 @@ using Microsoft.AspNet.Identity.Owin;
 namespace Gamefacers.Controllers
 {
     public class HomeController : Controller
-    {   
+    {
 
-        IUserRepo user = new UserRepo();
-        IStatusRepo statusRepo = new StatusRepo();
-        IGroupRepo groupRepo = new GroupRepo();
-        IFriendshipRepo friendRepo = new FriendshipRepo();
-        IPlatformRepo platformRepo = new PlatformRepo();
+        private IUserRepo user = new UserRepo();
+        private IStatusRepo statusRepo = new StatusRepo();
+        private IGroupRepo groupRepo = new GroupRepo();
+        private IFriendshipRepo friendRepo = new FriendshipRepo();
+        private IPlatformRepo platformRepo = new PlatformRepo();
+        private IStatusCommentRepo statusCommentRepo = new StatusCommentRepo();
 
-       
+
 
         public ActionResult Index()
         {
 
             string userId = User.Identity.GetUserId();
             IEnumerable<int> groupId = groupRepo.GetMyGroupId(userId);
+            IEnumerable<int> statusId = statusRepo.GetAllMyGroupStatusesIds(groupId);
             FrontPageViewModel viewModel = new FrontPageViewModel
             {
                 Groups = groupRepo.GetMyGroupNames(groupId),
                 Statuses = statusRepo.GetMyGroupStatuses(groupId),
-                Platforms = platformRepo.GetAllPlatforms()
+                Platforms = platformRepo.GetAllPlatforms(),
+                StatusComments = statusCommentRepo.GetStatusComments(statusId)
+
             };
+
+
             return View(viewModel);
         }
 
         public ActionResult MyProfile()
         {
-            IEnumerable<Status> myStatuses = statusRepo.GetMyStatuses(User.Identity.GetUserId());
+            string userId = User.Identity.GetUserId();
+            IEnumerable<int> groupId = groupRepo.GetMyGroupId(userId);
+            IEnumerable<int> statusId = statusRepo.GetAllMyGroupStatusesIds(groupId);
+            FrontPageViewModel viewModel = new FrontPageViewModel
+            {
+                Statuses = statusRepo.GetMyGroupStatuses(groupId),
+                StatusComments = statusCommentRepo.GetStatusComments(statusId)
+            };
 
             ViewBag.email = user.GetEmail(User.Identity.GetUserId());
             ViewBag.user = user.GetFullName(User.Identity.GetUserId());
-            return View(myStatuses);
+            return View(viewModel);
 
-            
+
         }
 
         public ActionResult PlayStation()
         {
 
-           IEnumerable<Group> pgroups = groupRepo.GetAllGroups(1);
+            IEnumerable<Group> pgroups = groupRepo.GetAllGroups(1);
 
-           return View(pgroups);
+            return View(pgroups);
         }
 
         public ActionResult Xbox()
@@ -80,6 +93,61 @@ namespace Gamefacers.Controllers
         {
 
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult PostHomeComment(int StatusId, int GroupId, FormCollection collection)
+        {
+            var newCommentText = collection["StatusComment.CommentText"];
+            if (newCommentText == null)
+            {
+                return Redirect("/Group/GroupIndex/");
+            }
+
+            else
+            {
+                StatusComment newComment = new StatusComment
+                {
+                    CommentText = newCommentText,
+                    DateCreated = DateTime.Now,
+                    UserId = User.Identity.GetUserId(),
+                    StatusId = StatusId,
+                };
+
+                statusCommentRepo.PostComment(newComment);
+
+
+                return Redirect("/Home/Index/");
+            }
+
+
+        }
+
+        [HttpPost]
+        public ActionResult PostProfileComment(int StatusId, int GroupId, FormCollection collection)
+        {
+            var newCommentText = collection["StatusComment.CommentText"];
+            if (newCommentText == null)
+            {
+                return Redirect("/Home/MyProfile/");
+            }
+
+            else
+            {
+                StatusComment newComment = new StatusComment
+                {
+                    CommentText = newCommentText,
+                    DateCreated = DateTime.Now,
+                    UserId = User.Identity.GetUserId(),
+                    StatusId = StatusId,
+                };
+
+                statusCommentRepo.PostComment(newComment);
+
+
+                return Redirect("/Home/MyProfile/");
+            }
+
         }
     }
 }

@@ -38,7 +38,16 @@ namespace Gamefacers.Repositories
         public IEnumerable<Status> GetMyGroupStatuses(IEnumerable<int> GroupId)
         {
             return (from myGS in db.Statuses where GroupId.Contains(myGS.GroupId) select myGS).ToList();
-        } 
-      
+        }
+
+        public IEnumerable<int> GetAllStatusesIds(int GroupId)
+        {
+            return (from statusId in db.Statuses where statusId.GroupId == GroupId select statusId.ID).ToList();
+        }
+
+        public IEnumerable<int> GetAllMyGroupStatusesIds(IEnumerable<int> GroupId)
+        {
+            return (from myStatusIds in db.Statuses where GroupId.Contains(myStatusIds.GroupId) select myStatusIds.ID).ToList();
+        }
     }
 }
