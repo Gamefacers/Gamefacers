@@ -13,7 +13,7 @@ namespace Gamefacers.Repositories
 
         public IEnumerable<Status> GetAllStatuses(int GroupId)
         {
-            return (from status in db.Statuses where status.GroupId == GroupId select status).ToList();
+            return (from status in db.Statuses where status.GroupId == GroupId select status).ToList().OrderByDescending(d => d.DateCreated);
 
         }
 
@@ -27,7 +27,7 @@ namespace Gamefacers.Repositories
 
        public IEnumerable<Status> GetMyStatuses(string UserId)
         {
-            return (from myStatus in db.Statuses where myStatus.UserId == UserId select myStatus).ToList();
+            return (from myStatus in db.Statuses where myStatus.UserId == UserId select myStatus).ToList().OrderByDescending(d => d.DateCreated);
         }
 
         public DateTime GetTime(int StatusId)
@@ -37,7 +37,7 @@ namespace Gamefacers.Repositories
 
         public IEnumerable<Status> GetMyGroupStatuses(IEnumerable<int> GroupId)
         {
-            return (from myGS in db.Statuses where GroupId.Contains(myGS.GroupId) select myGS).ToList();
+            return (from myGS in db.Statuses where GroupId.Contains(myGS.GroupId) select myGS).ToList().OrderByDescending(d => d.DateCreated);
         }
 
         public IEnumerable<int> GetAllStatusesIds(int GroupId)
@@ -47,7 +47,8 @@ namespace Gamefacers.Repositories
 
         public IEnumerable<int> GetAllMyGroupStatusesIds(IEnumerable<int> GroupId)
         {
-            return (from myStatusIds in db.Statuses where GroupId.Contains(myStatusIds.GroupId) select myStatusIds.ID).ToList();
+            return
+                (from myStatusIds in db.Statuses where GroupId.Contains(myStatusIds.GroupId) select myStatusIds.ID).ToList();
         }
     }
 }
