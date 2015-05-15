@@ -212,12 +212,12 @@ fieldset
 
 .comment
 {
-    
-    height:40px;
+    font-size:13px;
+    height:auto;
     width:570px;
     resize: none;
-    background-color: white;
-    color: black;
+    background-color: #9B342A;
+    color: white;
     border-color: white;
 }
 

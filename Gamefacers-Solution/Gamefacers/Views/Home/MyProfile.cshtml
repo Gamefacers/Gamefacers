@@ -29,13 +29,28 @@
 </div>
 
 <div class="main-column">
-    @foreach (var mystatus in Model.Statuses)
+
+    @foreach (var status in Model.Statuses)
     {
-        <p> Jonsson , @mystatus.DateCreated </p>
+        <p> Jonsson , @status.DateCreated </p>
         <fieldset class="status">
             <!-- Hér kemur statusinn-->
-            <p> @mystatus.StatusText </p>
-            @using (Html.BeginForm("PostProfileComment", "Home", new { StatusId = mystatus.ID, GroupId = mystatus.GroupId }, FormMethod.Post, null))
+            <p>@status.StatusText </p>
+
+            @foreach (var comment in Model.StatusComments)
+            {
+                if (status.ID == comment.StatusId)
+                {
+                    <br />
+                    <fieldset class="comment">
+                        <p class="comment"> Jon Jonson - @comment.DateCreated </p>
+                        <hr>
+                        <p> @comment.CommentText <p />
+                    </fieldset>
+                }
+            }
+
+            @using (Html.BeginForm("PostHomeComment", "Home", new { StatusId = status.ID, GroupId = status.GroupId }, FormMethod.Post, null))
             {
                 @Html.AntiForgeryToken()
                 <div class="form-group">
@@ -46,23 +61,11 @@
                     </div>
                 </div>
             }
-
-            @foreach (var comment in Model.StatusComments)
-            {
-                if (mystatus.ID == comment.StatusId)
-                {
-                    <br />
-                    <p class="comment">@comment.CommentText</p>
-
-                }
-            }
         </fieldset>
+        <br />
+        <br />
     }
-    <br />
-    <br />
 </div>
-
-
 
 <div class="right-column">
 

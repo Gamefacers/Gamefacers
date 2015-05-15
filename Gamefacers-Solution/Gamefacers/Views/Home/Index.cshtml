@@ -39,41 +39,40 @@
 <div class="main-column">
 
     @foreach (var status in Model.Statuses)
-    {
+    { 
         <p> Jonsson , @status.DateCreated </p>
     <fieldset class="status">
         <!-- Hér kemur statusinn-->
         <p>@status.StatusText </p>
-
-        @using (Html.BeginForm("PostHomeComment", "Home", new { StatusId = status.ID, GroupId = status.GroupId }, FormMethod.Post, null))
-        {
-            @Html.AntiForgeryToken()
-            <div class="form-group">
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.StatusComment.CommentText, new {htmlAttributes = new {@class = "status-textarea"}})
-                    @Html.ValidationMessageFor(model => model.StatusComment.CommentText, "", new {@class = "status-textarea"})
-                    <input class="status-button" name="Post" type="submit" value="Post"/>
-                </div>
-            </div>
             
-        }
+          @foreach (var comment in Model.StatusComments) 
+           { 
+              if (status.ID == comment.StatusId) 
+                { 
+               <br />
+                <fieldset class="comment">
+                    <p class="comment"> Jon Jonson - @comment.DateCreated </p>
+                    <hr>
+                    <p> @comment.CommentText <p/>
+                </fieldset>
+                }
+           }
 
-    
-
-        @foreach (var comment in Model.StatusComments)
+@using (Html.BeginForm("PostHomeComment", "Home", new { StatusId = status.ID, GroupId = status.GroupId }, FormMethod.Post, null))
         {
-            if (status.ID == comment.StatusId)
-            {
-                <br />
-                <p class="comment">@comment.CommentText</p>
-                
-            }
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.StatusComment.CommentText, new {htmlAttributes = new {@class = "status-textarea"}})
+            @Html.ValidationMessageFor(model => model.StatusComment.CommentText, "", new {@class = "status-textarea"})
+            <input class="status-button" name="Post" type="submit" value="Post" />
+        </div>
+    </div>
         }
-        
-         </fieldset>
-    }
-        <br />
-        <br />
+        </fieldset>
+    <br />
+    <br />
+    }  
 </div>
 
 <div class="right-column">
