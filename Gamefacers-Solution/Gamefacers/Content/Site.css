@@ -20,7 +20,7 @@
 input,
 select,
 textarea {
-    max-width: 600px;
+    max-width: 400px;
 }
 
 
@@ -223,15 +223,10 @@ fieldset
 
 .status
 {
+    font-size:18px;
     height:auto;
     width:680px;
     resize: none;
-    left: 5px; 
-    top: 5px;
-    right: 5px; 
-    bottom: 5px;
     background-color: #9B342A;
     color: white;
-    border-width:2px;
-    border-color: black;
 }
