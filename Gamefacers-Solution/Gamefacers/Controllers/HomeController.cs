@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -23,9 +24,13 @@ namespace Gamefacers.Controllers
 
         public ActionResult Index()
         {
+
+            string userId = User.Identity.GetUserId();
+            IEnumerable<int> groupId = groupRepo.GetMyGroupId(userId);
             FrontPageViewModel viewModel = new FrontPageViewModel
             {
-                //Groups = groupRepo.GetAllGroups(),
+                Groups = groupRepo.GetMyGroupNames(groupId),
+                Statuses = statusRepo.GetMyGroupStatuses(groupId),
                 Platforms = platformRepo.GetAllPlatforms()
             };
             return View(viewModel);
@@ -33,10 +38,11 @@ namespace Gamefacers.Controllers
 
         public ActionResult MyProfile()
         {
+            IEnumerable<Status> myStatuses = statusRepo.GetMyStatuses(User.Identity.GetUserId());
 
             ViewBag.email = user.GetEmail(User.Identity.GetUserId());
             ViewBag.user = user.GetFullName(User.Identity.GetUserId());
-            return View();
+            return View(myStatuses);
 
             
         }

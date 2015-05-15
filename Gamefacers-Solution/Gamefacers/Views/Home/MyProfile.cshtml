@@ -1,7 +1,4 @@
-﻿
-@using Gamefacers.Repositories
-@using Microsoft.AspNet.Identity
-@model Gamefacers.Repositories.UserRepo
+﻿@model IEnumerable<Gamefacers.Models.Status>
 
 
 <div class="left-column">
@@ -32,15 +29,17 @@
 </div>
 
 <div class="main-column">
+    @foreach (var mystatus in Model)
+    {
+        <p> Jonsson , @mystatus.DateCreated </p>
+        <fieldset class="status">
+            <!-- Hér kemur statusinn-->
+            <p> @mystatus.StatusText </p>
 
-    <p> Jonsson , kl 13:37 </p>
-    <fieldset class="status">
-        <!-- Hér kemur statusinn-->
-        <p> status </p>
-
-        <textarea class="comment" placeholder="comment on status"></textarea>
-        <input class="status-button" type="submit" value="Post" />
-    </fieldset>
+            <textarea class="comment" placeholder="comment on status"></textarea>
+            <input class="status-button" type="submit" value="Post"/>
+        </fieldset>
+    }
     <br />
     <br />
 </div>

@@ -23,10 +23,7 @@ namespace Gamefacers.Repositories
             return (from friend in db.Friendships where friend.FriendId == UserId select friend).ToList();
         }
 
-        public void DeleteFriend(string UserId, int FriendId)
-        {
-            
-        }
+        
 
     }
 }

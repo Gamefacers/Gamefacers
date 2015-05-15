@@ -6,19 +6,14 @@ using Gamefacers.Models;
 
 namespace Gamefacers.Repositories
 {
-    public class StatusCommentRepo
+    public class StatusCommentRepo : IStatusCommentRepo
     {
         ApplicationDbContext db = new ApplicationDbContext();
 
-        public void PostCommnet(string UserId, int StatusId, string CommentText)
+        public void PostComment(StatusComment newComment)
         {
-            StatusComment comment = new StatusComment();
-            comment.UserId = UserId;
-            comment.StatusId = StatusId;
-            comment.DateCreated = DateTime.Now;
-            comment.CommentText = CommentText;
-
-            db.StatusComments.Add(comment);
+           
+            db.StatusComments.Add(newComment);
             db.SaveChanges();
         }
 

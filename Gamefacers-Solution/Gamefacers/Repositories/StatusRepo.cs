@@ -25,16 +25,20 @@ namespace Gamefacers.Repositories
             db.SaveChanges();
         }
 
-        public string EditStatus(int StatusId)
+       public IEnumerable<Status> GetMyStatuses(string UserId)
         {
-            return null;
+            return (from myStatus in db.Statuses where myStatus.UserId == UserId select myStatus).ToList();
         }
 
-        /*public IEnumerable<Status> GetTime(int StatusId)
+        public DateTime GetTime(int StatusId)
         {
-            return (from time in db.Statuses where time.ID == StatusId select Status)
-        } */
+            return (from time in db.Statuses where time.ID == StatusId select time.DateCreated).Single();
+        }
 
+        public IEnumerable<Status> GetMyGroupStatuses(IEnumerable<int> GroupId)
+        {
+            return (from myGS in db.Statuses where GroupId.Contains(myGS.GroupId) select myGS).ToList();
+        } 
       
     }
 }

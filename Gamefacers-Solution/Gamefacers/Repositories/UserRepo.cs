@@ -27,6 +27,7 @@ namespace Gamefacers.Repositories
             return (from user in db.Users where ids.Contains(user.Id) select user).ToList();
         } 
             
+        
             
         
     }

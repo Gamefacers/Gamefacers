@@ -12,5 +12,7 @@ namespace Gamefacers.Repositories
     {
         void PostStatus(Status status);
         IEnumerable<Status> GetAllStatuses(int GroupId);
+        IEnumerable<Status> GetMyStatuses(string UserId);
+        IEnumerable<Status> GetMyGroupStatuses(IEnumerable<int> GroupId);
     }
 }

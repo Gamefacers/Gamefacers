@@ -49,9 +49,16 @@ namespace Gamefacers.Repositories
             return (from desc in db.Groups where desc.ID == GroupId select desc.GroupDesc).Single();
         }
 
-        public IEnumerable<Group> GetYorGroups(string UserId)
+        public IEnumerable<Group> GetMyGroupNames(IEnumerable<int> GroupId)
         {
-            return (from g in db.Groups where g.UserId == UserId select g ).ToList();
+            return (from myGroupName in db.Groups where GroupId.Contains(myGroupName.ID) select myGroupName).ToList();
+        } 
+
+        public IEnumerable<int> GetMyGroupId(string UserId)
+        {
+            return (from myGroupId in db.GroupMembers where myGroupId.UserId == UserId select myGroupId.GroupId).ToList();
         }
+       
+
     }
 }

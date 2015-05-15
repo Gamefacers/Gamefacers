@@ -52,10 +52,19 @@
             <!-- Hér kemur statusinn-->
             <p> @status.StatusText </p>
 
-            <textarea class="comment" placeholder="comment on status"></textarea>
-            <input class="status-button" type="submit" value="Post"/>
-            <!--Hér kemur comment og post-takki-->
-        </fieldset>
+            @using (Html.BeginForm("PostComment", "Group", new {StatusId = status.ID, GroupId = ViewBag.Id}, FormMethod.Post, null))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.StatusComment.CommentText, new { htmlAttributes = new { @class = "status-textarea" } })
+            @Html.ValidationMessageFor(model => model.StatusComment.CommentText, "", new { @class = "status-textarea" })
+            <input class="status-button" name="Post" type="submit" value="Post" />
+        </div>
+    </div>
+}                          
+     </fieldset>
+
         <br/>
         <br/>
     }

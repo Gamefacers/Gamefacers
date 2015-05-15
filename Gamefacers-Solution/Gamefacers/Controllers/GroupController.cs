@@ -14,6 +14,7 @@ namespace Gamefacers.Controllers
         IUserRepo user = new UserRepo();
         IGroupRepo groupRepo = new GroupRepo();
         IStatusRepo statusRepo = new StatusRepo();
+        IStatusCommentRepo statusCommentRepo = new StatusCommentRepo();
         
 
         // GET: Group
@@ -32,7 +33,7 @@ namespace Gamefacers.Controllers
             }
             
         }
-
+        //GET: GroupPage/GroupId
         public ActionResult GroupIndex(int id)
         {
 
@@ -41,25 +42,20 @@ namespace Gamefacers.Controllers
             GroupIndexViewModels viewModel = new GroupIndexViewModels()
             {
                 Members = user.GetUsersFromIds(membersUserIds),
-                Statuses = statusRepo.GetAllStatuses(id)
+                Statuses = statusRepo.GetAllStatuses(id),
+
+
+                
             };
 
-            
-            
             ViewBag.photo = groupRepo.GetPhotoUrl(id);
             ViewBag.desc = groupRepo.GetGroupDesc(id);
             ViewBag.Id = id;
-            //ViewBag.time = statusRepo.
+           
 
             return View(viewModel);
         }
 
-
-     
-        
-        
-        
-        
         
         // GET: Group/Create
         public ActionResult Create()
@@ -86,17 +82,14 @@ namespace Gamefacers.Controllers
             
                 
 
+
                 return RedirectToAction("Index", "Home");
            
         }
 
-        // GET: Group/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
+      
 
-        // POST: Group/Edit/5
+        //POST: PostStatus/GroupId
         [HttpPost]
         public ActionResult PostStatus(int id, FormCollection collection)
         {
@@ -135,6 +128,32 @@ namespace Gamefacers.Controllers
             groupRepo.JoinGroup(newGroupMember);
 
             return Redirect("/Group/GroupIndex/" + id.ToString());
+        }
+
+        [HttpPost]
+        public ActionResult PostComment(int StatusId, int GroupId, FormCollection collection)
+        {
+            var newCommentText = collection["StatusComment.CommentText"];
+            if (newCommentText == null)
+            {
+                return Redirect("/Group/GroupIndex/" + GroupId.ToString() );
+            }
+
+            else
+            {
+                StatusComment newComment = new StatusComment
+                {
+                    CommentText = newCommentText,
+                    DateCreated = DateTime.Now,
+                    UserId = User.Identity.GetUserId(),
+                    StatusId = StatusId,
+                };
+
+                statusCommentRepo.PostComment(newComment);
+
+
+                return Redirect("/Group/GroupIndex/" + GroupId.ToString());
+            }
         }
 
        
