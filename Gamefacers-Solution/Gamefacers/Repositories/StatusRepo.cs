@@ -29,5 +29,12 @@ namespace Gamefacers.Repositories
         {
             return null;
         }
+
+        /*public IEnumerable<Status> GetTime(int StatusId)
+        {
+            return (from time in db.Statuses where time.ID == StatusId select Status)
+        } */
+
+      
     }
 }

@@ -1,23 +1,26 @@
-﻿@model IEnumerable<Gamefacers.Models.ApplicationUser>
+﻿@model Gamefacers.Models.GroupIndexViewModels
 
 <div class="right-column">
     <fieldset>
         <legend> Members</legend>
-        <!--foreach (var member in Model)
-        {
-            <p>member.Fullname </p>
-        }-->
+        @foreach (var member in Model.Members)
+                {
+       
+                    <p>@member.FullName </p>
+                }
+        
+         
     </fieldset>
 </div>
 
 <div class="left-column">
-     <fieldset>
+    <fieldset>
         <legend> Description </legend>
         <p> @ViewBag.desc </p>
     </fieldset>
-    <br/>
-    
-    <input type="button" value="Join Group" />
+    <br />
+
+    @Html.ActionLink("Join", "Join", "Group", new { id = ViewBag.Id }, null)
 </div>
 
 
@@ -27,18 +30,40 @@
     </fieldset>
 </div>
 
-<div class="main-column">
-    <textarea class="status-textarea" placeholder="What´s on your mind"></textarea>
-    <input class="status-button" type="submit" value="Post" />
+@using (Html.BeginForm("PostStatus", "Group", new { id = ViewBag.Id }, FormMethod.Post, null))
+{ 
+    @Html.AntiForgeryToken()
+    <div class="main-column">
 
-    <br />
-    <br  />
-    <fieldset class="status">
-        <!-- Hér kemur statusinn-->
-        <p> Test farðu niður</p>
-        <p> Test2 farðu neðar</p>
-        <textarea class="comment" placeholder="comment on status"></textarea>
-        <input class="status-button" type="submit" value="post"  />
-            <!--Hér kemur comment og post-takki-->
-    </fieldset>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Status.StatusText, htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Status.StatusText, new {htmlAttributes = new {@class = "status-textarea"}})
+                @Html.ValidationMessageFor(model => model.Status.StatusText, "", new {@class = "status-textarea"})
+                <input class="status-button" name="Post" type="submit" value="PostStatus" />
+            </div>
+        </div>
+     </div>
+}
 
+
+            <br/>
+            <br/>
+        <div class="main-column">
+           
+                @foreach (var status in Model.Statuses)
+                {
+                    <fieldset class="status">
+                        <!-- Hér kemur statusinn-->
+                        <p> @status.StatusText </p>
+
+                        <textarea class="comment" placeholder="comment on status"></textarea>
+                        <input class="status-button" type="submit" value="post"/>
+                        <!--Hér kemur comment og post-takki-->
+                    </fieldset>
+                    <br/>
+                    <br/>
+                }
+            
+
+        </div>

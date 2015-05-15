@@ -173,6 +173,7 @@
     <Compile Include="Models\Friendship.cs" />
     <Compile Include="Models\FrontPageViewModel.cs" />
     <Compile Include="Models\Group.cs" />
+    <Compile Include="Models\GroupIndexViewModels.cs" />
     <Compile Include="Models\GroupMember.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />

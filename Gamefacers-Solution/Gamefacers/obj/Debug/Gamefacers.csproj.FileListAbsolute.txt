@@ -105,7 +105,6 @@ C:\Users\Dalli\Documents\Git Folder\Gamefacers\Gamefacers-Solution\Gamefacers\bi
 C:\Users\Dalli\Documents\Git Folder\Gamefacers\Gamefacers-Solution\Gamefacers\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\Dalli\Documents\Git Folder\Gamefacers\Gamefacers-Solution\Gamefacers\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Dalli\Documents\Git Folder\Gamefacers\Gamefacers-Solution\Gamefacers\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\Dalli\Documents\Git Folder\Gamefacers\Gamefacers-Solution\Gamefacers\obj\Debug\Gamefacers.csprojResolveAssemblyReference.cache
 C:\Users\Dalli\Documents\Git Folder\Gamefacers\Gamefacers-Solution\Gamefacers\obj\Debug\Gamefacers.dll
 C:\Users\Dalli\Documents\Git Folder\Gamefacers\Gamefacers-Solution\Gamefacers\obj\Debug\Gamefacers.pdb
 C:\Users\Notandi\Documents\Visual Studio 2013\Projects\WebApplication2\Gamefacers\Gamefacers-Solution\Gamefacers\bin\Gamefacers.dll.config

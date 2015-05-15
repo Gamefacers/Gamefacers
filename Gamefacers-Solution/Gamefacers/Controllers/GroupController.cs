@@ -35,14 +35,23 @@ namespace Gamefacers.Controllers
 
         public ActionResult GroupIndex(int id)
         {
+
+            
             IEnumerable<string> membersUserIds = groupRepo.GetGroupMembersIds(id);
-            IEnumerable<ApplicationUser> members = user.GetUsersFromIds(membersUserIds);
+            GroupIndexViewModels viewModel = new GroupIndexViewModels()
+            {
+                Members = user.GetUsersFromIds(membersUserIds),
+                Statuses = statusRepo.GetAllStatuses(id)
+            };
+
+            
             
             ViewBag.photo = groupRepo.GetPhotoUrl(id);
             ViewBag.desc = groupRepo.GetGroupDesc(id);
             ViewBag.Id = id;
+            //ViewBag.time = statusRepo.
 
-            return View(members);
+            return View(viewModel);
         }
 
 
@@ -91,21 +100,27 @@ namespace Gamefacers.Controllers
         [HttpPost]
         public ActionResult PostStatus(int id, FormCollection collection)
         {
-            var newStatusText = collection["StatusText"];
-            
-            Status newStatus = new Status
+            var newStatusText = collection["Status.StatusText"];
+            if (newStatusText == null)
             {
-                StatusText = newStatusText,
-                DateCreated = DateTime.Now,
-                UserId = User.Identity.GetUserId(),
-                GroupId = id,
+                return Redirect("/Group/GroupIndex/" + id.ToString());
+            }
+            
+            else
+            {
+                Status newStatus = new Status
+                {
+                    StatusText = newStatusText,
+                    DateCreated = DateTime.Now,
+                    UserId = User.Identity.GetUserId(),
+                    GroupId = id,
                 };
 
-            statusRepo.PostStatus(newStatus);
+                statusRepo.PostStatus(newStatus);
 
 
-             return RedirectToAction("GroupIndex","Group");
-          
+                return Redirect("/Group/GroupIndex/" + id.ToString());
+            }
         }
 
         // GET: Group/Join/GroupId
