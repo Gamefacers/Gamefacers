@@ -15,7 +15,6 @@ namespace Gamefacers.Repositories
 
             db.Friendships.Add(newFriend);
             db.SaveChanges();
-
         }
 
         public IEnumerable<Friendship> GetAllFriends(string UserId)

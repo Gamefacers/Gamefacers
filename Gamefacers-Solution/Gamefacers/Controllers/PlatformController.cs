@@ -13,13 +13,14 @@ namespace Gamefacers.Controllers
         IPlatformRepo platformRepo = new PlatformRepo();
 
 
-
+        
         [HttpGet]
         public ActionResult Create()
         {
             return View();
         }
 
+        
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {

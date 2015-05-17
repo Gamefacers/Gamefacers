@@ -76,10 +76,7 @@ namespace Gamefacers.Controllers
 
         }
 
-     /* private ActionResult View(FrontPageViewModel viewModel, IEnumerable<ApplicationUser> Users)
-        {
-            throw new NotImplementedException();
-        }*/
+
 
         public ActionResult PlayStation()
         {
