@@ -9,7 +9,7 @@ namespace Gamefacers.Repositories
 {
     interface IFriendshipRepo
     {
-        IEnumerable<Friendship> GetAllFriends(string UserId);
+        IEnumerable<String> GetAllFriends(string UserId);
         void AddFriend(Friendship newFriend);
     }
 }

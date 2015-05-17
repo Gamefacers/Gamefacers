@@ -6,10 +6,7 @@
         <fieldset>
             <!--Hér kemur profile pic sem user hefur upploadað-->
             <p>
-                
-                <a href="http://www.w3schools.com">
-                    <img src="http://img1.wikia.nocookie.net/__cb20150320210257/logopedia/images/f/fa/Logo-PSX.png" alt="Go to W3Schools!" width="42" height="42" border="0">
-                </a>
+                <img src="http://img1.wikia.nocookie.net/__cb20150320210257/logopedia/images/f/fa/Logo-PSX.png" alt="Profile Picture" width="150" height="150" border="0">
             </p>
 
         </fieldset>
@@ -29,41 +26,45 @@
 </div>
 
 <div class="main-column">
-
-    @foreach (var status in Model.Statuses)
+    @foreach (var groupName in Model.Groups)
     {
-        <p> Jonsson , @status.DateCreated </p>
-        <fieldset class="status">
-            <!-- Hér kemur statusinn-->
-            <p>@status.StatusText </p>
+        foreach (var status in Model.Statuses)
+         {
+             <p> @User.Identity.Name - @if (status.GroupId == groupName.ID){ @groupName.GroupName} - @status.DateCreated </p>
 
-            @foreach (var comment in Model.StatusComments)
-            {
-                if (status.ID == comment.StatusId)
-                {
-                    <br />
-                    <fieldset class="comment">
-                        <p class="comment"> Jon Jonson - @comment.DateCreated </p>
-                        <hr>
-                        <p> @comment.CommentText <p />
-                    </fieldset>
-                }
-            }
+             <fieldset class="status">
+                 <!-- Hér kemur statusinn-->
+                 <p>@status.StatusText </p>
 
-            @using (Html.BeginForm("PostHomeComment", "Home", new { StatusId = status.ID, GroupId = status.GroupId }, FormMethod.Post, null))
-            {
-                @Html.AntiForgeryToken()
-                <div class="form-group">
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.StatusComment.CommentText, new { htmlAttributes = new { @class = "status-textarea" } })
-                        @Html.ValidationMessageFor(model => model.StatusComment.CommentText, "", new { @class = "status-textarea" })
-                        <input class="status-button" name="Post" type="submit" value="Post" />
-                    </div>
-                </div>
-            }
-        </fieldset>
-        <br />
-        <br />
+                 @foreach (var comment in Model.StatusComments)
+                 {
+                     if (status.ID == comment.StatusId)
+                     {
+                         <br/>
+                         <fieldset class="comment">
+                             <p class="comment"> @User.Identity.Name - @comment.DateCreated </p>
+                             <hr>
+                             <p> @comment.CommentText
+                             <p/>
+                         </fieldset>
+                     }
+                 }
+
+                 @using (Html.BeginForm("PostHomeComment", "Home", new {StatusId = status.ID, GroupId = status.GroupId}, FormMethod.Post, null))
+                 {
+                     @Html.AntiForgeryToken()
+                     <div class="form-group">
+                         <div class="col-md-10">
+                             @Html.EditorFor(model => model.StatusComment.CommentText, new {htmlAttributes = new {@class = "status-textarea"}})
+                             @Html.ValidationMessageFor(model => model.StatusComment.CommentText, "", new {@class = "status-textarea"})
+                             <input class="status-button" name="Post" type="submit" value="Post"/>
+                         </div>
+                     </div>
+                 }
+             </fieldset>
+             <br/>
+             <br/>
+         }
     }
 </div>
 
@@ -75,13 +76,13 @@
             <legend> My Friends </legend>
 
 
-            <!--  foreach (var friend in Model.Friendships)
-              {
-                  <p>
-                      <a href="friend.">
-                          <img src="friend." height="50" width="150"/>
-                      </a>
-                  </p>-->
+            @foreach (var member in Model.Members)
+            {
+
+                <p>
+                    @Html.ActionLink(@member.FullName, "profileindex", "profile", new { id = member.Id }, null)
+                </p>
+
             }
         </fieldset>
     </form>

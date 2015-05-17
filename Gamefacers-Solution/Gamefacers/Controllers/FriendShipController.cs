@@ -14,29 +14,24 @@ namespace Gamefacers.Controllers
         IFriendshipRepo friendsRepo = new FriendshipRepo();
 
        
-        public ActionResult AddFriend(string FriendId)
+        public ActionResult AddFriend(string id)
         {
             Friendship newFriendship = new Friendship
             {
                 UserId = User.Identity.GetUserId(),
-                FriendId = FriendId,
+                FriendId = id,
             };
                 
                 friendsRepo.AddFriend(newFriendship);
 
 
-            return Redirect("/Home/UsersProfile?FriendId=" + FriendId  );
+            return Redirect("/Profile/ProfileIndex?id=" + id  );
            
         }
 
         
 
-        public ActionResult GetFriendList(string UserId)
-        {
-            IEnumerable<Friendship> friend = friendsRepo.GetAllFriends(User.Identity.GetUserId());
-            
-            return View(friend);
-        }
+
 
      
         

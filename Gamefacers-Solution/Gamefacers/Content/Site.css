@@ -31,7 +31,7 @@ textarea {
     font-size:12px;
     background-color:#9B342B;
     position:relative;
-    height:750px;
+    height:1500px;
     width:200px;
     float:right;
     padding:5px;	
@@ -40,10 +40,11 @@ textarea {
 
 .left-column
 {
+    font-size: 13px;
     text-align: center;
     margin-top:20px;
     position:relative;
-    height:750px;
+    height:1500px;
     width:200px;
     float:left;
     padding:5px;	 
@@ -187,6 +188,12 @@ fieldset
 .text-align-left
 {
     text-align:left;
+}
+
+.text-align-center 
+{
+    text-align: center;
+    margin: auto;   
 }
 
 .status-button

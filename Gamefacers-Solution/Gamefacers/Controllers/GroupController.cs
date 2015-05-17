@@ -17,22 +17,7 @@ namespace Gamefacers.Controllers
         IStatusCommentRepo statusCommentRepo = new StatusCommentRepo();
         
 
-        // GET: Group
-        public ActionResult GroupList()
-        {
-            if (User.Identity.IsAuthenticated)
-            {
-              
-                
-               
-                return View();
-            }
-            else
-            {
-                return Redirect("/Account/Login");
-            }
-            
-        }
+       
         //GET: GroupPage/GroupId
         public ActionResult GroupIndex(int id)
         {
@@ -52,6 +37,7 @@ namespace Gamefacers.Controllers
             ViewBag.photo = groupRepo.GetPhotoUrl(id);
             ViewBag.desc = groupRepo.GetGroupDesc(id);
             ViewBag.Id = id;
+            
            
 
             return View(viewModel);

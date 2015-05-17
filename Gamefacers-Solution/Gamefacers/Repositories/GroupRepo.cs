@@ -8,7 +8,7 @@ namespace Gamefacers.Repositories
 {
     public class GroupRepo : IGroupRepo
     {
-        ApplicationDbContext db = new ApplicationDbContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         public IEnumerable<string> GetGroupMembersIds(int GroupId)
         {
@@ -18,7 +18,7 @@ namespace Gamefacers.Repositories
         public IEnumerable<Group> GetAllGroups(int PlatformId)
         {
             return (from everygroup in db.Groups where everygroup.PlatformId == PlatformId select everygroup).ToList();
-            
+
         }
 
         public void JoinGroup(GroupMember Member)
@@ -29,7 +29,7 @@ namespace Gamefacers.Repositories
 
         public void CreateGroup(Group group)
         {
-          
+
             db.Groups.Add(group);
             db.SaveChanges();
         }
@@ -49,16 +49,23 @@ namespace Gamefacers.Repositories
             return (from desc in db.Groups where desc.ID == GroupId select desc.GroupDesc).Single();
         }
 
+
+       
+
         public IEnumerable<Group> GetMyGroupNames(IEnumerable<int> GroupId)
         {
             return (from myGroupName in db.Groups where GroupId.Contains(myGroupName.ID) select myGroupName).ToList();
-        } 
+        }
 
         public IEnumerable<int> GetMyGroupId(string UserId)
         {
-            return (from myGroupId in db.GroupMembers where myGroupId.UserId == UserId select myGroupId.GroupId).ToList();
+            return
+                (from myGroupId in db.GroupMembers where myGroupId.UserId == UserId select myGroupId.GroupId).ToList();
         }
-       
+
+
+
+
 
     }
 }

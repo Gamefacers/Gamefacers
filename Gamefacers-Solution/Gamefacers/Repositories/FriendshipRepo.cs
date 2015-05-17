@@ -18,10 +18,11 @@ namespace Gamefacers.Repositories
 
         }
 
-        public IEnumerable<Friendship> GetAllFriends(string UserId)
+        public IEnumerable<String> GetAllFriends(string UserId)
         {
-            return (from friend in db.Friendships where friend.FriendId == UserId select friend).ToList();
+            return (from friend in db.Friendships where UserId.Contains(friend.UserId) select friend.FriendId).ToList();
         }
+
 
         
 

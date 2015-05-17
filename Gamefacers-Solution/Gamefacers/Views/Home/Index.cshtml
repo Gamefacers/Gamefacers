@@ -10,7 +10,10 @@
                 <legend> My Group List</legend>
                  @foreach (var myGroup in Model.Groups)
                  {
-                     <p>@myGroup.GroupName</p>
+                     <fieldset>
+                         <p class="text-align-center">@Html.ActionLink(@myGroup.GroupName, "GroupIndex", "Group", new {id = myGroup.ID}, null)</p>
+                     </fieldset>
+                     <br/>
                  }
         </fieldset>
     <br  />
@@ -40,7 +43,7 @@
 
     @foreach (var status in Model.Statuses)
     { 
-        <p> Jonsson , @status.DateCreated </p>
+        <p> @User.Identity.Name - @ViewBag.groupName - @status.DateCreated </p>
     <fieldset class="status">
         <!-- Hér kemur statusinn-->
         <p>@status.StatusText </p>
@@ -51,7 +54,7 @@
                 { 
                <br />
                 <fieldset class="comment">
-                    <p class="comment"> Jon Jonson - @comment.DateCreated </p>
+                    <p class="comment"> @User.Identity.Name -  @comment.DateCreated </p>
                     <hr>
                     <p> @comment.CommentText <p/>
                 </fieldset>
@@ -83,14 +86,14 @@
             <legend> My Friends </legend>
             
             
-      <!--  foreach (var friend in Model.Friendships)
-        {
-            <p>
-                <a href="friend.">
-                    <img src="friend." height="50" width="150"/>
-                </a>
-            </p>-->
-        }
+            @foreach (var member in Model.Members)
+            {
+
+                <p>
+                    @Html.ActionLink(@member.FullName, "profileindex", "profile", new { id = member.Id }, null)
+                </p>
+
+            }
         </fieldset>
     </form>
 </div>

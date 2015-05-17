@@ -1,52 +1,32 @@
-﻿@model Gamefacers.Models.GroupIndexViewModels
-
-<div class="right-column">
-    <fieldset>
-        <legend> Members</legend>
-        @foreach (var member in Model.Members)
-                {
-                    <p>@Html.ActionLink(@member.FullName, "ProfileIndex", "Profile", new { id = member.Id }, null) </p>
-                }         
-    </fieldset>
-</div>
+﻿@model Gamefacers.Models.FrontPageViewModel
 
 <div class="left-column">
-    <fieldset>
-        <legend> Description </legend>
-        <p> @ViewBag.desc </p>
-    </fieldset>
-    <br />
+    <form>
+        <fieldset>
+            <!--Hér kemur profile pic sem user hefur upploadað-->
+            <p>
+                <a href="">
+                    <img src="http://img1.wikia.nocookie.net/__cb20150320210257/logopedia/images/f/fa/Logo-PSX.png" alt="Go to W3Schools!" width="42" height="42" border="0">
+                </a>
+            </p>
+        </fieldset>
+        <fieldset>
+            <p> @ViewBag.name </p>
+            <p> @ViewBag.email </p>
 
-    @Html.ActionLink("Join", "Join", "Group", new { id = ViewBag.Id }, null)
+        </fieldset>
+        <fieldset>
+            <p>@Html.ActionLink("Add User", "AddFriend", "FriendShip", new { id = ViewBag.id }, null)</p>
+        </fieldset>
+    </form>
+
+    <!-- 2 Um profile og efst profile image-->
 </div>
-
-<div>
-    <fieldset>
-        <img src="@ViewBag.photo" class="banner-pic" />
-    </fieldset>
-</div>
-
-@using (Html.BeginForm("PostStatus", "Group", new { id = ViewBag.Id }, FormMethod.Post, null))
-{ 
-    @Html.AntiForgeryToken()
-    <div class="main-column">
-        <div class="form-group">
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Status.StatusText, new {htmlAttributes = new {@class = "status-textarea"}})
-                @Html.ValidationMessageFor(model => model.Status.StatusText, "", new {@class = "status-textarea"})
-                <input class="status-button" name="Post" type="submit" value="Post" />
-            </div>
-        </div>
-    </div>
-}
-            <br/>
-            <br/>
 
 <div class="main-column">
-
     @foreach (var status in Model.Statuses)
     {
-        <p> @User.Identity.Name - @ViewBag.name - @status.DateCreated </p>
+        <p> @User.Identity.Name - @status.DateCreated </p>
         <fieldset class="status">
             <!-- Hér kemur statusinn-->
             <p>@status.StatusText </p>
@@ -80,3 +60,23 @@
         <br />
     }
 </div>
+
+
+<div class="right-column">
+    <form>
+        <fieldset>
+            <legend> My Friends </legend>
+            @foreach (var member in Model.Members)
+            {
+                
+                     <p>
+                         @Html.ActionLink(@member.FullName, "profileindex", "profile", new { id = member.Id }, null)
+                     </p>
+                 
+            }
+        </fieldset>
+    </form>
+</div>
+
+
+

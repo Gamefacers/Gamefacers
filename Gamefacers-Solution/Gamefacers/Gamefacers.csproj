@@ -255,16 +255,15 @@
     <Content Include="Views\Home\Xbox.cshtml" />
     <Content Include="Views\Home\PC.cshtml" />
     <Content Include="Views\Home\Other.cshtml" />
-    <Content Include="Views\Home\UsersProfile.cshtml" />
     <Content Include="Views\FriendShip\GetFriendList.cshtml" />
     <Content Include="Views\Group\Create.cshtml" />
     <Content Include="Views\Platform\Create.cshtml" />
     <Content Include="Views\Platform\Index.cshtml" />
     <Content Include="Views\Group\GroupIndex.cshtml" />
+    <Content Include="Views\Profile\ProfileIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Profile\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -15,7 +15,9 @@ namespace Gamefacers.Repositories
         string GetPhotoUrl(int GroupId);
         string GetGroupDesc(int GroupId);
         IEnumerable<int> GetMyGroupId(string UserId);
-        IEnumerable<Group> GetMyGroupNames(IEnumerable<int> GroupId);        
+        IEnumerable<Group> GetMyGroupNames(IEnumerable<int> GroupId);
+        
+        
 
         
 
