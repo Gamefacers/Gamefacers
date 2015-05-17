@@ -14,5 +14,6 @@ namespace Gamefacers.Repositories
         IEnumerable<ApplicationUser> GetUsersFromIds(IEnumerable<string> ids);
         IEnumerable<string> GetFullNames(IEnumerable<string> UserId);
         IEnumerable<string> GetUsersIds(string UserId);
+        IEnumerable<string> GetAllUsers();
     }
 }

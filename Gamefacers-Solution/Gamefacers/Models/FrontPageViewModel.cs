@@ -15,5 +15,6 @@ namespace Gamefacers.Models
         public IEnumerable<StatusComment> StatusComments { get; set; }
         public StatusComment StatusComment { get; set; }
         public IEnumerable<ApplicationUser> Members { get; set; }
+        
     }
 }

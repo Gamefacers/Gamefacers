@@ -13,11 +13,7 @@ namespace Gamefacers.Controllers
         IPlatformRepo platformRepo = new PlatformRepo();
 
 
-        // GET: Platform
-        public ActionResult Index()
-        { 
-            return View(platformRepo.GetAllPlatforms());
-        }
+
         [HttpGet]
         public ActionResult Create()
         {

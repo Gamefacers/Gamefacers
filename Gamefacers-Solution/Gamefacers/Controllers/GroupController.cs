@@ -57,8 +57,8 @@ namespace Gamefacers.Controllers
             var newGroupName = collection["GroupName"];
             var newGroupPhotoUrl = collection["PhotoUrl"];
             var nPLatformId = collection["PlatformId"];
-           
             var newGroupDesc = collection["GroupDesc"];
+            
             Group newGroup = new Group 
             { GroupName = newGroupName, 
                 PhotoUrl = newGroupPhotoUrl, 
@@ -106,6 +106,18 @@ namespace Gamefacers.Controllers
         // GET: Group/Join/GroupId
         public ActionResult Join(int id)
         {
+            IEnumerable<int> myGroupId = groupRepo.GetMyGroupId(User.Identity.GetUserId());
+            foreach (var groupId in myGroupId)
+            {
+
+
+                if (id == groupId)
+                {
+
+                    return Redirect("/Group/GroupIndex/" + id.ToString());
+
+                }
+            }
             GroupMember newGroupMember = new GroupMember
             {
                 GroupId = id,

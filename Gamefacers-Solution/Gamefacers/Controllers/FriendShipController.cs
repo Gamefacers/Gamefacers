@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,29 +12,47 @@ namespace Gamefacers.Controllers
 {
     public class FriendShipController : Controller
     {
-        IFriendshipRepo friendsRepo = new FriendshipRepo();
+        private IFriendshipRepo friendsRepo = new FriendshipRepo();
 
-       
+
         public ActionResult AddFriend(string id)
         {
-            Friendship newFriendship = new Friendship
+            IEnumerable<Friendship> friendIds = friendsRepo.GetAllFriends(User.Identity.GetUserId());
+
+
+            foreach (var freindid in friendIds)
             {
-                UserId = User.Identity.GetUserId(),
-                FriendId = id,
-            };
-                
+
+
+                if (id == freindid.FriendId)
+                {
+                    
+                    return Redirect("/Profile/ProfileIndex?id=" + id);
+                    
+                }
+            }
+
+
+            Friendship newFriendship = new Friendship
+                {
+                    UserId = User.Identity.GetUserId(),
+                    FriendId = id,
+                };
+
                 friendsRepo.AddFriend(newFriendship);
 
 
-            return Redirect("/Profile/ProfileIndex?id=" + id  );
-           
+                return Redirect("/Profile/ProfileIndex?id=" + id);
+            
+
+
         }
 
-        
 
 
 
-     
-        
+
+
+
     }
 }

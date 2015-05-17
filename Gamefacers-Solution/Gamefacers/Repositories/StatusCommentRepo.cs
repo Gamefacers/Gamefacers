@@ -24,7 +24,7 @@ namespace Gamefacers.Repositories
 
         public IEnumerable<StatusComment> GetStatusComments(IEnumerable<int> StatusId)
         {
-            return (from statusComments in db.StatusComments where StatusId.Contains(statusComments.StatusId) select statusComments).ToList().OrderByDescending(d => d.DateCreated);
+            return (from statusComments in db.StatusComments where StatusId.Contains(statusComments.StatusId) select statusComments).ToList().OrderBy(d => d.DateCreated);
         }
     }
 }

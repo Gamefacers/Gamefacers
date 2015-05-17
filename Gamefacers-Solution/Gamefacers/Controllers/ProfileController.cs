@@ -21,15 +21,19 @@ namespace Gamefacers.Controllers
         public ActionResult ProfileIndex(string id)
         {
             string userId = User.Identity.GetUserId();
-            IEnumerable<string> getFriendId = friendshipRepo.GetAllFriends(userId);
+            IEnumerable<string> Users = userRepo.GetAllUsers();
             IEnumerable<int> groupId = groupRepo.GetMyGroupId(userId);
             IEnumerable<int> statusId = statusRepo.GetAllMyGroupStatusesIds(groupId);
             
             FrontPageViewModel viewModel= new FrontPageViewModel{
-                Members = userRepo.GetUsersFromIds(getFriendId),
+                
                 Statuses = statusRepo.GetMyStatuses(id),
-                StatusComments = statusCommentRepo.GetStatusComments(statusId)
+                StatusComments = statusCommentRepo.GetStatusComments(statusId),
+                Members = userRepo.GetUsersFromIds(Users),
+                Friendships = friendshipRepo.GetAllFriends(userId),
+                Groups = groupRepo.GetMyGroupNames(groupId),
             };
+
             ViewBag.name = userRepo.GetFullName(id);
             ViewBag.email = userRepo.GetEmail(id);
             ViewBag.id = id;

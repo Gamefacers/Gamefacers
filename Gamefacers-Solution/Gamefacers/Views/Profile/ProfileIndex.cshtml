@@ -1,4 +1,5 @@
-﻿@model Gamefacers.Models.FrontPageViewModel
+﻿@using Gamefacers.Models
+@model Gamefacers.Models.FrontPageViewModel
 
 <div class="left-column">
     <form>
@@ -16,17 +17,41 @@
 
         </fieldset>
         <fieldset>
-            <p>@Html.ActionLink("Add User", "AddFriend", "FriendShip", new { id = ViewBag.id }, null)</p>
+           
+              
+            <p>@Html.ActionLink("Add User", "AddFriend", "FriendShip", new {id = ViewBag.id}, null)</p>
+        
         </fieldset>
     </form>
 
     <!-- 2 Um profile og efst profile image-->
 </div>
 
+
 <div class="main-column">
+
     @foreach (var status in Model.Statuses)
-    {
-        <p> @User.Identity.Name - @status.DateCreated </p>
+    { <p>
+        @foreach (var statusOwner in Model.Members)
+        {
+            if (status.UserId == statusOwner.Id)
+            {
+
+                @statusOwner.FullName
+            }
+        }
+
+        -
+        @foreach (var groupName in Model.Groups)
+        {
+            if (groupName.ID == status.GroupId)
+            {
+                @groupName.GroupName
+            }
+        }
+        - @status.DateCreated
+    </p>
+
         <fieldset class="status">
             <!-- Hér kemur statusinn-->
             <p>@status.StatusText </p>
@@ -37,9 +62,21 @@
                 {
                     <br />
                     <fieldset class="comment">
-                        <p class="comment"> @User.Identity.Name - @comment.DateCreated </p>
+                        <p class="comment">
+                            @foreach (var commentOwner in Model.Members)
+                            {
+                                if (comment.UserId == commentOwner.Id)
+                                {
+                                    @commentOwner.FullName
+                                }
+
+                            }
+
+                            - @comment.DateCreated
+                        </p>
                         <hr>
-                        <p> @comment.CommentText <p />
+                        <p> @comment.CommentText
+                        <p />
                     </fieldset>
                 }
             }
@@ -59,7 +96,11 @@
         <br />
         <br />
     }
+
 </div>
+
+
+
 
 
 <div class="right-column">
@@ -68,11 +109,16 @@
             <legend> My Friends </legend>
             @foreach (var member in Model.Members)
             {
-                
-                     <p>
-                         @Html.ActionLink(@member.FullName, "profileindex", "profile", new { id = member.Id }, null)
-                     </p>
-                 
+                foreach (var friend in Model.Friendships)
+                {
+
+                    if (member.Id == friend.FriendId)
+                    {
+                        <p>
+                            @Html.ActionLink(@member.FullName, "profileindex", "profile", new { id = member.Id }, null)
+                        </p>
+                    }
+                }
             }
         </fieldset>
     </form>

@@ -26,11 +26,28 @@
 </div>
 
 <div class="main-column">
-    @foreach (var groupName in Model.Groups)
-    {
-        foreach (var status in Model.Statuses)
-         {
-             <p> @User.Identity.Name - @if (status.GroupId == groupName.ID){ @groupName.GroupName} - @status.DateCreated </p>
+   
+        @foreach (var status in Model.Statuses)
+        { <p>
+            @foreach (var statusOwner in Model.Members)
+            {
+                if (status.UserId == statusOwner.Id)
+                {
+
+                    @statusOwner.FullName
+                }
+            }
+
+            -
+            @foreach (var groupName in Model.Groups)
+            {
+                if (groupName.ID == status.GroupId)
+                {
+                    @groupName.GroupName
+                }
+            }
+            - @status.DateCreated
+        </p>
 
              <fieldset class="status">
                  <!-- Hér kemur statusinn-->
@@ -40,12 +57,23 @@
                  {
                      if (status.ID == comment.StatusId)
                      {
-                         <br/>
+                         <br />
                          <fieldset class="comment">
-                             <p class="comment"> @User.Identity.Name - @comment.DateCreated </p>
+                             <p class="comment">
+                                 @foreach (var commentOwner in Model.Members)
+                                 {
+                                     if (comment.UserId == commentOwner.Id)
+                                     {
+                                         @commentOwner.FullName
+                                     }
+
+                                 }
+
+                                 - @comment.DateCreated
+                             </p>
                              <hr>
                              <p> @comment.CommentText
-                             <p/>
+                             <p />
                          </fieldset>
                      }
                  }
@@ -65,7 +93,7 @@
              <br/>
              <br/>
          }
-    }
+    
 </div>
 
 <div class="right-column">
@@ -78,11 +106,16 @@
 
             @foreach (var member in Model.Members)
             {
+                foreach (var friend in Model.Friendships)
+                {
 
-                <p>
-                    @Html.ActionLink(@member.FullName, "profileindex", "profile", new { id = member.Id }, null)
-                </p>
-
+                    if (member.Id == friend.FriendId)
+                    {
+                        <p>
+                            @Html.ActionLink(@member.FullName, "profileindex", "profile", new { id = member.Id }, null)
+                        </p>
+                    }
+                }
             }
         </fieldset>
     </form>

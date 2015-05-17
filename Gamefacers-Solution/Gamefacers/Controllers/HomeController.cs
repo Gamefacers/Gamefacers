@@ -28,21 +28,22 @@ namespace Gamefacers.Controllers
 
             string userId = User.Identity.GetUserId();
             
-            IEnumerable<string> getFriendId = friendRepo.GetAllFriends(userId);
+            IEnumerable<string> Users = user.GetAllUsers();
             IEnumerable<int> groupId = groupRepo.GetMyGroupId(userId);
             IEnumerable<int> statusId = statusRepo.GetAllMyGroupStatusesIds(groupId);
+            
             FrontPageViewModel viewModel = new FrontPageViewModel
             {
-                
                 Groups = groupRepo.GetMyGroupNames(groupId),
                 Statuses = statusRepo.GetMyGroupStatuses(groupId),
                 Platforms = platformRepo.GetAllPlatforms(),
                 StatusComments = statusCommentRepo.GetStatusComments(statusId),
-                Members = user.GetUsersFromIds(getFriendId)
-
+                Members = user.GetUsersFromIds(Users),
+                Friendships = friendRepo.GetAllFriends(userId)
             };
 
             
+
 
             return View(viewModel);
         }
@@ -50,24 +51,35 @@ namespace Gamefacers.Controllers
         public ActionResult MyProfile()
         {
             string userId = User.Identity.GetUserId();
-             
-            IEnumerable<string> getFriendId = friendRepo.GetAllFriends(userId);
+
+            IEnumerable<string> Users = user.GetAllUsers();
             IEnumerable<int> groupId = groupRepo.GetMyGroupId(userId);
             IEnumerable<int> statusId = statusRepo.GetAllMyGroupStatusesIds(groupId);
+            
+            
             FrontPageViewModel viewModel = new FrontPageViewModel
             {
                 Statuses = statusRepo.GetMyStatuses(userId),
                 StatusComments = statusCommentRepo.GetStatusComments(statusId),
-                Members = user.GetUsersFromIds(getFriendId),
-                Groups = groupRepo.GetMyGroupNames(groupId)
+                
+                Groups = groupRepo.GetMyGroupNames(groupId),
+                Members = user.GetUsersFromIds(Users),
+                Friendships = friendRepo.GetAllFriends(userId)
+                
             };
             
             ViewBag.email = user.GetEmail(User.Identity.GetUserId());
             ViewBag.user = user.GetFullName(User.Identity.GetUserId());
+            
             return View(viewModel);
 
 
         }
+
+     /* private ActionResult View(FrontPageViewModel viewModel, IEnumerable<ApplicationUser> Users)
+        {
+            throw new NotImplementedException();
+        }*/
 
         public ActionResult PlayStation()
         {
@@ -98,12 +110,7 @@ namespace Gamefacers.Controllers
             return View(ogroups);
         }
 
-        public ActionResult UsersProfile(string FriendId)
-        {
-
-            return View();
-        }
-
+     
         [HttpPost]
         public ActionResult PostHomeComment(int StatusId, int GroupId, FormCollection collection)
         {

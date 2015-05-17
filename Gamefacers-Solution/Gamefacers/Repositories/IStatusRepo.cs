@@ -16,5 +16,6 @@ namespace Gamefacers.Repositories
         IEnumerable<Status> GetMyGroupStatuses(IEnumerable<int> GroupId);
         IEnumerable<int> GetAllStatusesIds(int GroupId);
         IEnumerable<int> GetAllMyGroupStatusesIds(IEnumerable<int> GroupId);
+        IEnumerable<string> GetStatusOwner(IEnumerable<int> StatusId);
     }
 }

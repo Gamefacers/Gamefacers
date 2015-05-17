@@ -34,10 +34,7 @@ namespace Gamefacers.Repositories
             db.SaveChanges();
         }
 
-        public int LeaveGroup(int GroupId)
-        {
-            return 0;
-        }
+     
 
         public string GetPhotoUrl(int GroupId)
         {

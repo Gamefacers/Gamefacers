@@ -53,5 +53,12 @@ namespace Gamefacers.Repositories
         {
             return (from myStatusIds in db.Statuses where GroupId.Contains(myStatusIds.GroupId) select myStatusIds.ID).ToList();
         }
+
+
+        public IEnumerable<string> GetStatusOwner(IEnumerable<int> StatusId)
+        {
+            return (from statusIds in db.Statuses where StatusId.Contains(statusIds.ID) select statusIds.UserId).ToList();
+        }
+
     }
 }

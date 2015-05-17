@@ -46,10 +46,23 @@
 
     @foreach (var status in Model.Statuses)
     {
-        <p> @User.Identity.Name - @ViewBag.name - @status.DateCreated </p>
         <fieldset class="status">
+        <p>
+            @foreach (var statusOwner in Model.Members)
+            {
+                if (status.UserId == statusOwner.Id)
+                {
+
+                    @statusOwner.FullName
+                }
+            }
+
+
+            - @status.DateCreated
+
+
             <!-- Hér kemur statusinn-->
-            <p>@status.StatusText </p>
+        <p>@status.StatusText </p>
 
             @foreach (var comment in Model.StatusComments)
             {
@@ -57,25 +70,37 @@
                 {
                     <br />
                     <fieldset class="comment">
-                        <p class="comment"> @User.Identity.Name - @comment.DateCreated </p>
+                        <p class="comment">
+                            @foreach (var commentOwner in Model.Members)
+                            {
+                                if (comment.UserId == commentOwner.Id)
+                                {
+                                    @commentOwner.FullName
+                                }
+
+                            }
+
+                            - @comment.DateCreated
+                        </p>
                         <hr>
-                        <p> @comment.CommentText <p />
+                        <p> @comment.CommentText
+                        <p />
                     </fieldset>
                 }
             }
 
-            @using (Html.BeginForm("PostHomeComment", "Home", new { StatusId = status.ID, GroupId = status.GroupId }, FormMethod.Post, null))
-            {
-                @Html.AntiForgeryToken()
-                <div class="form-group">
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.StatusComment.CommentText, new { htmlAttributes = new { @class = "status-textarea" } })
-                        @Html.ValidationMessageFor(model => model.StatusComment.CommentText, "", new { @class = "status-textarea" })
-                        <input class="status-button" name="Post" type="submit" value="Post" />
-                    </div>
+        @using (Html.BeginForm("PostHomeComment", "Home", new { StatusId = status.ID, GroupId = status.GroupId }, FormMethod.Post, null))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.StatusComment.CommentText, new { htmlAttributes = new { @class = "status-textarea" } })
+                    @Html.ValidationMessageFor(model => model.StatusComment.CommentText, "", new { @class = "status-textarea" })
+                    <input class="status-button" name="Post" type="submit" value="Post" />
                 </div>
-            }
-        </fieldset>
+            </div>
+        }
+    </fieldset>
         <br />
         <br />
     }

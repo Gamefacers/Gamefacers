@@ -36,8 +36,11 @@ namespace Gamefacers.Repositories
         {
             return (from names in db.Users where UserId.Contains(names.Id) select names.FullName).ToList();
         }
-            
-        
+
+        public IEnumerable<string> GetAllUsers()
+        {
+            return (from users in db.Users select users.Id).ToList();
+        }
             
         
     }
